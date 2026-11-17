@@ -1,0 +1,275 @@
+/* ==========================================================================
+   storefront-motion.css — à importer EN DERNIER (après communications.css)
+   1) Navbar  2) Animations  3) Contraste  4) Compatibilité framer-motion
+   Les sélecteurs reprennent ceux de ton CSS existant (mêmes spécificités).
+   ========================================================================== */
+
+:root {
+  --sf-navy: #04202f;
+  --sf-navy-2: #06304a;
+  --sf-teal: #14b8a6;
+  --sf-teal-light: #2dd4bf;
+  --sf-teal-dark: #0d7c70;   /* teal lisible sur fond clair : 5:1 sur blanc, 4.7:1 sur teal-50 */
+  --sf-header-h: 76px;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ⚠️ "overflow-x: hidden" casse position: sticky ; "clip" non */
+.site-shell { overflow-x: clip; }
+.site-shell section[id] { scroll-margin-top: calc(var(--sf-header-h) + 10px); }
+
+/* ==========================================================================
+   1) NAVBAR
+   ========================================================================== */
+.site-shell .topbar {
+  z-index: 60;
+  min-height: var(--sf-header-h);
+  background: rgba(255, 255, 255, 0.92);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.site-shell .topbar.is-scrolled { background: rgba(255, 255, 255, 0.86); box-shadow: 0 10px 30px -14px rgba(4, 32, 47, 0.35); }
+.site-shell .main-nav a { position: relative; white-space: nowrap; }
+.site-shell .main-nav a:hover, .site-shell .main-nav a.is-active { color: var(--sf-teal-dark); }
+.site-shell .main-nav a.is-active { font-weight: 600; }
+.sf-underline { position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px; border-radius: 2px; background: var(--sf-teal); }
+.site-shell .cart-count { display: inline-grid; place-items: center; }
+
+/* Barre de progression de lecture */
+.sf-progress { position: fixed; z-index: 70; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--sf-teal), var(--sf-teal-light)); transform-origin: left center; box-shadow: 0 0 10px rgba(20, 184, 166, 0.7); pointer-events: none; }
+
+/* Burger (mobile uniquement) */
+.sf-burger { display: none; flex: none; width: 44px; height: 44px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; background: #e8faf7; border: 0; border-radius: 10px; cursor: pointer; }
+.sf-burger span { width: 20px; height: 2px; background: var(--sf-navy-2); transition: transform 0.3s, opacity 0.2s; }
+.sf-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.sf-burger.is-open span:nth-child(2) { opacity: 0; }
+.sf-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.sf-mobile-panel {
+  position: fixed; inset: 0; z-index: 55;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+  padding: calc(var(--sf-header-h) + 28px) 24px 32px;
+  overflow-y: auto;
+  color: #fff;
+  background: radial-gradient(500px 300px at 100% 0%, rgba(45, 212, 191, 0.25), transparent 60%), var(--sf-navy);
+}
+.sf-mobile-panel ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.sf-mobile-panel li a { display: flex; justify-content: space-between; align-items: center; padding: 16px 4px; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.14); transition: color 0.25s, padding 0.25s; }
+.sf-mobile-panel li a span { color: var(--sf-teal-light); }
+.sf-mobile-panel li a:hover, .sf-mobile-panel li a.is-active { color: var(--sf-teal-light); padding-left: 14px; }
+.sf-mobile-cta { width: 100%; }
+
+/* Structure : rien ne doit rétrécir ni déborder, et les menus déroulants (cloche) ne sont jamais coupés */
+.site-shell .topbar { overflow: visible; }
+.site-shell .topbar .brand { flex: none; }
+.site-shell .top-actions { flex: none; position: relative; z-index: 2; }
+.sf-mobile-actions { display: grid; gap: 12px; }
+.sf-mobile-account { height: 52px; font: 600 1rem var(--font-display); color: #fff; background: rgba(255, 255, 255, 0.1); border: 1.5px solid rgba(255, 255, 255, 0.28); border-radius: var(--r-sm); cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+.sf-mobile-account:hover { background: rgba(255, 255, 255, 0.18); border-color: var(--sf-teal-light); }
+
+@media (max-width: 900px) {
+  .site-shell { --sf-header-h: 68px; }
+  .sf-burger { display: flex; }
+  .site-shell .account-link { display: none; }   /* l'accès « Mon compte / Mes réservations » est dans le menu mobile */
+}
+@media (max-width: 520px) {
+  .site-shell .topbar { padding-inline: 14px; gap: 10px; }
+  .site-shell .topbar .brand > span:last-child { display: none; }   /* on garde seulement le « M » */
+  .site-shell .top-actions { gap: 8px; }
+  .site-shell .cart-button { padding: 10px 12px; }
+}
+
+/* ==========================================================================
+   CLOCHE DE NOTIFICATIONS — sélecteurs exacts de NotificationsBell.tsx
+   (.notification-widget > .notification-trigger[svg + i] + .notification-popover)
+   Couleurs en !important car communications.css est chargé avant et inconnu.
+   ========================================================================== */
+.site-shell .sf-bell { position: relative; display: inline-flex; align-items: center; }
+.site-shell .notification-widget { position: relative; display: inline-flex; }
+
+/* Bouton déclencheur : fond blanc, bordure grise, icône marine */
+.site-shell .notification-trigger {
+  position: relative;
+  display: inline-grid; place-items: center;
+  width: 44px; height: 44px; padding: 0;
+  color: var(--sf-navy-2) !important;
+  background: #fff !important;
+  border: 1.5px solid var(--c-line) !important;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+}
+.site-shell .notification-trigger:hover,
+.site-shell .notification-trigger[aria-expanded="true"] { color: var(--sf-teal-dark) !important; background: var(--c-teal-50) !important; border-color: var(--c-teal-500) !important; }
+.site-shell .notification-trigger:hover { transform: translateY(-1px); }
+/* Icône : trait uniquement, couleur héritée du bouton */
+.site-shell .notification-trigger svg { width: 22px; height: 22px; fill: none !important; stroke: currentColor !important; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transform-origin: 50% 8%; }
+.site-shell .notification-trigger:hover svg { animation: sf-ring 0.7s ease; }
+@keyframes sf-ring { 0%, 100% { rotate: 0deg; } 20% { rotate: 16deg; } 40% { rotate: -14deg; } 60% { rotate: 9deg; } 80% { rotate: -6deg; } }
+
+/* Pastille des non-lues (<i> dans le bouton) : texte blanc sur rouge */
+.site-shell .notification-trigger > i {
+  position: absolute; top: -7px; right: -7px;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  display: inline-grid; place-items: center;
+  font: 700 0.7rem/1 var(--font-display); font-style: normal;
+  color: #fff !important; background: #d12f34 !important;
+  border: 2px solid #fff; border-radius: 999px;
+  animation: sf-dot-red 2.4s ease-in-out infinite;
+}
+@keyframes sf-dot-red { 0%, 100% { box-shadow: 0 0 0 0 rgba(209, 47, 52, 0.5); } 50% { box-shadow: 0 0 0 7px rgba(209, 47, 52, 0); } }
+
+/* Panneau déroulant */
+.site-shell .notification-popover {
+  position: absolute; top: calc(100% + 10px); right: 0; z-index: 90;
+  width: min(360px, calc(100vw - 24px)); max-height: min(70vh, 460px); overflow-y: auto;
+  color: var(--c-ink) !important;
+  background: #fff !important;
+  border: 1px solid var(--c-line); border-radius: var(--r-md);
+  box-shadow: var(--shadow-card);
+  animation: sf-pop 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: top right;
+}
+@keyframes sf-pop { from { opacity: 0; scale: 0.94; translate: 0 -8px; } to { opacity: 1; scale: 1; translate: 0 0; } }
+.site-shell .notification-popover > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--c-line); }
+.site-shell .notification-popover > header b { font-family: var(--font-display); color: var(--c-ink) !important; }
+.site-shell .notification-popover > header span { font-size: 0.8rem; font-weight: 600; color: var(--sf-teal-dark) !important; }
+.site-shell .notification-popover ul { list-style: none; margin: 0; padding: 6px; display: grid; gap: 2px; }
+.site-shell .notification-popover li button {
+  display: grid; gap: 4px; width: 100%; padding: 11px 12px; text-align: left;
+  color: var(--c-ink) !important; background: transparent !important;
+  border: 0; border-left: 3px solid transparent; border-radius: var(--r-sm); cursor: pointer;
+  transition: background 0.2s;
+}
+.site-shell .notification-popover li button:hover { background: var(--c-bg) !important; }
+.site-shell .notification-popover li button span { font-size: 0.9rem; line-height: 1.45; color: var(--c-muted) !important; }
+.site-shell .notification-popover li button small { font-size: 0.75rem; color: var(--c-muted) !important; }
+/* Non lue : plus marquée */
+.site-shell .notification-popover li.is-unread button { background: var(--c-teal-50) !important; border-left-color: var(--c-teal-500); }
+.site-shell .notification-popover li.is-unread button span { font-weight: 600; color: var(--c-ink) !important; }
+.site-shell .notification-popover .notifications-empty { padding: 28px 16px; text-align: center; font-size: 0.9rem; color: var(--c-muted) !important; }
+
+/* Mobile : le panneau s'ancre à la barre (pas à la cloche) pour ne jamais sortir de l'écran */
+@media (max-width: 640px) {
+  .site-shell .top-actions, .site-shell .sf-bell, .site-shell .notification-widget { position: static; }
+  .site-shell .notification-popover { top: calc(100% + 6px); left: 12px; right: 12px; width: auto; transform-origin: top center; }
+}
+
+/* ==========================================================================
+   2) ANIMATIONS
+   ========================================================================== */
+.sf-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.sf-particles span { position: absolute; bottom: -20px; border-radius: 50%; background: rgba(45, 212, 191, 0.55); box-shadow: 0 0 14px rgba(45, 212, 191, 0.8); animation: sf-rise linear infinite; }
+@keyframes sf-rise { 0% { transform: translate(0, 0) scale(0.6); opacity: 0; } 15% { opacity: 0.9; } 100% { transform: translate(40px, -640px) scale(1.2); opacity: 0; } }
+
+/* Titre du hero : masque de révélation */
+.site-shell .hero-section h1 .sf-line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.site-shell .hero-section h1 .sf-line > * { display: inline-block; }
+
+/* Orbites / soleil : propriétés individuelles (n'écrasent aucun transform existant) */
+.site-shell .orbit-one { animation: sf-spin 28s linear infinite; }
+.site-shell .orbit-two { animation: sf-spin 40s linear infinite reverse; }
+.site-shell .art-sun { animation: sf-breathe 6s ease-in-out infinite; }
+@keyframes sf-spin { to { rotate: 360deg; } }
+@keyframes sf-breathe { 0%, 100% { scale: 1; opacity: 0.9; } 50% { scale: 1.14; opacity: 1; } }
+
+.site-shell .eyebrow-line { transform-origin: left center; animation: sf-grow 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes sf-grow { from { scale: 0 1; } to { scale: 1 1; } }
+.site-shell .hero-progress i { transform-origin: left center; animation: sf-progress 6s ease-in-out infinite alternate; }
+@keyframes sf-progress { from { scale: 0.3 1; } to { scale: 2.4 1; } }
+.site-shell .proof-star, .site-shell .banner-spark { display: inline-block; animation: sf-spin 12s linear infinite; }
+.site-shell .note-spark { display: inline-block; animation: sf-twinkle 2.4s ease-in-out infinite; }
+@keyframes sf-twinkle { 0%, 100% { scale: 1; opacity: 1; } 50% { scale: 1.4; opacity: 0.6; } }
+.site-shell .duration-dot { animation: sf-dot 1.8s ease-in-out infinite; }
+@keyframes sf-dot { 0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6); } 50% { box-shadow: 0 0 0 8px rgba(20, 184, 166, 0); } }
+
+/* Reflet automatique (utilise ::before : ::after est déjà pris par .primary-button) */
+.sf-shine { position: relative; overflow: hidden; }
+.sf-shine::before { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent); transform: skewX(-20deg); animation: sf-shine 3.8s ease-in-out infinite; pointer-events: none; }
+@keyframes sf-shine { 0%, 55% { left: -60%; } 100% { left: 140%; } }
+
+/* Marquee */
+.sf-marquee { overflow: hidden; margin-top: 48px; padding: 18px 0; background: var(--sf-navy); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.sf-marquee-track { display: flex; width: max-content; animation: sf-marquee 40s linear infinite; }
+.sf-marquee:hover .sf-marquee-track { animation-play-state: paused; }
+.sf-marquee-track span { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.9); white-space: nowrap; }
+.sf-marquee-track i { font-style: normal; color: var(--sf-teal-light); display: inline-block; animation: sf-spin 6s linear infinite; }
+@keyframes sf-marquee { to { transform: translateX(-25%); } }
+
+/* Cartes : zoom image + reflet au survol */
+.site-shell .product-visual img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.site-shell .product-card:hover .product-visual img { transform: scale(1.1); }
+.site-shell .product-visual::after, .site-shell .event-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%); translate: -120% 0; transition: translate 0.9s cubic-bezier(0.22, 1, 0.36, 1); pointer-events: none; }
+.site-shell .product-card:hover .product-visual::after, .site-shell .event-card:hover .event-cover::after { translate: 120% 0; }
+.site-shell .tool-shape { display: inline-block; animation: sf-float 4.5s ease-in-out infinite; }
+@keyframes sf-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+.site-shell .quick-add:not(:disabled) { animation: sf-pulse 2.8s ease-in-out infinite; }
+@keyframes sf-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5); } 50% { box-shadow: 0 0 0 10px rgba(20, 184, 166, 0); } }
+.site-shell .stock-status i.available { animation: sf-dot 2s ease-in-out infinite; }
+.site-shell .closing-banner { background-size: 100% 100%, 200% 100%; animation: sf-gradient 9s ease-in-out infinite alternate; }
+@keyframes sf-gradient { from { background-position: 0 0, 0 0; } to { background-position: 0 0, 100% 0; } }
+
+/* Retour en haut */
+.sf-to-top { position: fixed; z-index: 40; right: 22px; bottom: 22px; width: 48px; height: 48px; display: grid; place-items: center; font-size: 1.3rem; font-weight: 700; color: #fff; background: var(--sf-teal-dark); border: 0; border-radius: 50%; cursor: pointer; box-shadow: 0 14px 28px -10px rgba(13, 124, 112, 0.9); }
+
+/* ==========================================================================
+   3) CONTRASTE (valeurs mesurées, WCAG AA = 4.5:1 pour du texte normal)
+   Problème de fond : --c-teal-500 (#14b8a6) ne fait que ~2.5:1 en texte sur
+   fond clair, et en texte blanc dessus. Deux règles appliquées :
+   - texte teal sur fond clair  → teal foncé #0d7c70
+   - bouton teal vif (#14b8a6)  → texte marine #04202f (6.5:1) au lieu de blanc
+   ========================================================================== */
+
+/* --- Textes teal sur fonds clairs --- */
+.site-shell .eyebrow { color: var(--sf-teal-dark); }
+.site-shell .hero-copy .eyebrow, .site-shell .closing-banner .eyebrow { color: var(--c-teal-400); }  /* fonds sombres : on garde le teal clair */
+.site-shell em { color: var(--sf-teal-dark); }
+.site-shell .hero-section h1 em { color: var(--c-teal-400); }
+.site-shell .event-card-content > button,
+.site-shell .product-footer > button,
+.site-shell .selected-event-filter button,
+.site-shell .catalog-footer a,
+.site-shell .cart-empty button, .site-shell .orders-logout,
+.site-shell .auth-switch button { color: var(--sf-teal-dark); }
+.site-shell .category-tabs button:hover,
+.site-shell .close-button:hover,
+.site-shell .quantity-control button:hover { color: var(--sf-teal-dark); }
+.site-shell .booking-icon, .site-shell .promise-icon, .site-shell .drawer-dates > span,
+.site-shell .empty-catalog > span, .site-shell .cart-empty > span,
+.site-shell .note-spark, .site-shell .date-divider { color: var(--sf-teal-dark); }
+.site-shell .promise-number { color: var(--sf-teal-dark); opacity: 0.45; }   /* était #dbe6ea sur blanc : quasi invisible */
+
+/* --- Boutons teal vif : texte marine au lieu de blanc --- */
+.site-shell .primary-button,
+.site-shell .booking-submit,
+.site-shell .quick-add,
+.site-shell .status-en_cours { color: var(--c-navy-900); }
+.site-shell .product-footer > button:hover:not(:disabled) { color: var(--c-navy-900); }
+.site-shell .cart-button { color: #fff; }
+
+/* --- Messages d'erreur / avertissement --- */
+.site-shell .inline-error, .site-shell .form-error { color: #a4161a; }
+.site-shell .cancel-order { color: #b3201f; }
+.site-shell .expiry-note, .site-shell .status-provisoire { color: #8a5a0b; }
+
+/* --- Focus visible (le focus marine disparaissait sur fonds sombres) --- */
+.site-shell .hero-section a:focus-visible, .site-shell .hero-section button:focus-visible,
+.site-shell .closing-banner a:focus-visible, .sf-mobile-panel a:focus-visible, .sf-mobile-panel button:focus-visible { outline-color: var(--sf-teal-light); }
+
+/* ==========================================================================
+   4) COMPATIBILITÉ framer-motion
+   Tes modales avaient des animations CSS (fill-mode "both") qui bloquent les
+   animations d'entrée/sortie de framer-motion. Elles sont désactivées ici.
+   Bonus : l'animation CSS du toast écrasait son translateX(-50%), donc il
+   n'était pas centré. Maintenant il l'est.
+   ========================================================================== */
+.site-shell .modal-backdrop,
+.site-shell .cart-drawer,
+.site-shell .orders-modal,
+.site-shell .auth-modal,
+.site-shell .toast { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-particles { display: none; }
+}
