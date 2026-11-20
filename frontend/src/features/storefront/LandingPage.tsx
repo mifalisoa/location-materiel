@@ -120,7 +120,7 @@ function LandingNav() {
     <AnimatePresence>
       {mobileOpen && <motion.div id="landing-mobile-panel" className="landing-mobile-panel" initial={reduced ? false : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }} animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }} exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }} transition={{ duration: reduced ? 0 : 0.45, ease: smoothEase }}>
         <motion.ul initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: reduced ? 0 : 0.06, delayChildren: 0.15 } } }}>
-          [...navLinks, { label: 'Se connecter', href: '/catalogue?compte=connexion' }].map((link) => (
+          {[...navLinks, { label: 'Se connecter', href: '/catalogue?compte=connexion' }].map((link) => (
             <motion.li key={link.label} variants={{ hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0 } }} transition={{ duration: 0.4, ease: smoothEase }}>
               <a href={link.href} className={link.href === `#${active}` ? 'is-active' : undefined} onClick={() => setMobileOpen(false)}>{link.label}<span>↗</span></a>
             </motion.li>
