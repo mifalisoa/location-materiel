@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import BrandLogo from '../../components/BrandLogo'
 import { AnimatePresence, MotionConfig, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { eventCollections, type EventCollection } from './eventCatalog'
@@ -14,6 +14,14 @@ type AuthMode = 'connexion' | 'inscription'
 
 /* ⚠️ À remplacer par vos vraies coordonnées */
 const CONTACT = { phone: '+261 00 00 000 00', email: 'contact@materiel.local', hours: 'Lun - Sam : 08h - 18h' }
+const eventImages: Record<string, string> = {
+  mariage: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85',
+  conference: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=85',
+  gala: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=85',
+  'fete-privee': 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=85',
+  'concert-festival': 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=85',
+}
+const fallbackEventImage = 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=85'
 
 const faqItems = [
   { question: 'Comment savoir si le matériel est disponible ?', answer: 'Choisissez vos dates dans le catalogue : les quantités disponibles sont recalculées pour la période sélectionnée.' },
@@ -267,7 +275,7 @@ export default function LandingPage() {
         setEvents(rows.map((row) => {
           const defaults = eventCollections.find((item) => item.id === row.slug)
           return { ...defaults, id: row.slug, databaseId: row.id, number: String(row.ordre).padStart(2, '0'), name: row.nom, slug: row.slug,
-            subtitle: row.sousTitre ?? defaults?.subtitle ?? '', description: row.description ?? defaults?.description ?? '', imageUrl: row.imageUrl,
+            subtitle: row.sousTitre ?? defaults?.subtitle ?? '', description: row.description ?? defaults?.description ?? '', imageUrl: row.imageUrl ?? eventImages[row.slug] ?? fallbackEventImage,
             groups: defaults?.groups ?? [], keywords: defaults?.keywords ?? [], articles: row.articles ?? [] }
         }))
       }).catch(() => undefined)
@@ -366,7 +374,7 @@ export default function LandingPage() {
           <FadeIn className="landing-section-heading"><div><p className="landing-tag landing-tag-light">Nos univers</p><h2>Le bon équipement pour <span className="accent">chaque moment</span></h2></div><p>Choisissez votre occasion, découvrez les essentiels et composez votre sélection.</p></FadeIn>
           <StaggerContainer className="landing-event-grid">
             {events.map((event) => <StaggerItem key={event.id}><TiltCard className="landing-event-tilt"><motion.a className="landing-event-card" href={`/catalogue?evenement=${encodeURIComponent(event.id)}`} onClick={(click) => { click.preventDefault(); window.dispatchEvent(new CustomEvent('landing:require-auth', { detail: `/catalogue?evenement=${encodeURIComponent(event.id)}` })) }} whileHover={reduceMotion ? undefined : { y: -6 }} whileTap={{ scale: 0.98 }}>
-              <div className="landing-event-image" style={{ '--landing-event-image': event.imageUrl ? `url("${event.imageUrl}")` : 'none' } as CSSProperties}><span className="landing-event-kicker">{event.subtitle}</span></div>
+              <div className="landing-event-image"><img src={event.imageUrl ?? eventImages[event.id] ?? fallbackEventImage} alt={`Matériel et ambiance pour ${event.name}`} loading="lazy" /><span className="landing-event-kicker">{event.subtitle}</span></div>
               <div className="landing-event-info">
                 <h3>{event.name}</h3>
                 <p>{event.description}</p>

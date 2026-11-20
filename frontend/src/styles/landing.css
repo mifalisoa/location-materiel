@@ -361,7 +361,8 @@ html { scroll-behavior: smooth; }
   background-position: center;
   transition: background-size 0.8s var(--ease);
 }
-.landing-event-card:hover .landing-event-image { background-size: 115%; }
+.landing-event-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+.landing-event-card:hover .landing-event-image img { transform: scale(1.08); }
 .landing-event-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%); transform: translateX(-120%); transition: transform 0.9s var(--ease); }
 .landing-event-card:hover .landing-event-image::after { transform: translateX(120%); }
 .landing-event-kicker { position: absolute; z-index: 1; left: 14px; bottom: 14px; padding: 5px 12px; font: 600 0.78rem var(--font-display); color: #fff; background: var(--teal); border-radius: 999px; }
