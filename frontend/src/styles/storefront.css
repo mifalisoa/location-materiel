@@ -319,7 +319,7 @@
   background: var(--c-white); border: 1px solid var(--c-line);
   border-radius: var(--r-lg); box-shadow: var(--shadow-soft);
 }
-.site-shell .product-visual { position: relative; height: 170px; display: grid; place-items: center; overflow: hidden; background: var(--c-teal-50); }
+.site-shell .product-visual { position: relative; height: 170px; display: grid; place-items: center; overflow: hidden; background-color: var(--c-teal-50); background-position: center; background-size: cover; }
 .site-shell .visual-1 { background: #e6eff4; }
 .site-shell .visual-2 { background: #eaf6f3; }
 .site-shell .visual-3 { background: #e9f1f7; }
