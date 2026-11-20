@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 200" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Logo Location Matériel</title>
+  <defs>
+    <linearGradient id="beam-cyan" x1="150" y1="84" x2="205" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#7F42FF"/><stop offset=".58" stop-color="#2EBAFF"/><stop offset="1" stop-color="#69F3FF"/></linearGradient>
+    <linearGradient id="beam-violet" x1="153" y1="98" x2="211" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#3CC8FF"/><stop offset=".48" stop-color="#8B46FF"/><stop offset="1" stop-color="#C85CFF"/></linearGradient>
+    <linearGradient id="bar-purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C45BFF"/><stop offset="1" stop-color="#6326E8"/></linearGradient>
+    <linearGradient id="bar-blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66F3FF"/><stop offset="1" stop-color="#3295F5"/></linearGradient>
+    <linearGradient id="body" x1="25" y1="22" x2="160" y2="180" gradientUnits="userSpaceOnUse"><stop stop-color="#233148"/><stop offset="1" stop-color="#101827"/></linearGradient>
+    <filter id="glow" x="0" y="0" width="220" height="200" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="2.2"/></filter>
+  </defs>
+  <path d="M145 86 189 10l15-3-37 77-15 13-7-11Z" fill="url(#beam-cyan)" opacity=".24" filter="url(#glow)"/>
+  <path d="m151 91 58-47 8 7-48 48-16 8-8-10 6-6Z" fill="url(#beam-violet)" opacity=".22" filter="url(#glow)"/>
+  <path d="m145 86 44-76 15-3-37 77-15 13-7-11Z" fill="url(#beam-cyan)"/>
+  <path d="m151 92 58-48 8 7-48 48-16 8-8-10 6-5Z" fill="url(#beam-violet)"/>
+  <path d="m153 99 47-22 7 8-38 24-13 2-7-8 4-4Z" fill="url(#beam-violet)"/>
+  <path d="M18 21 67 49V31h22v31l73 41-144 83V21Z" fill="url(#body)" stroke="#8093AC" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M29 130h12v38H29z" fill="url(#bar-purple)" stroke="#C779FF" stroke-width="1.2"/>
+  <path d="M51 107h12v61H51z" fill="url(#bar-purple)" stroke="#D08BFF" stroke-width="1.2"/>
+  <path d="M73 77h13v91H73z" fill="url(#bar-blue)" stroke="#8FF7FF" stroke-width="1.2"/>
+  <path d="M96 94h13v74H96z" fill="url(#bar-purple)" stroke="#D08BFF" stroke-width="1.2"/>
+  <path d="M119 116h12v52h-12z" fill="url(#bar-blue)" stroke="#81EFFF" stroke-width="1.2"/>
+</svg>

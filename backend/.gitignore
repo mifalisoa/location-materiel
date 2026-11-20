@@ -8,6 +8,9 @@ dist/
 coverage/
 *.tsbuildinfo
 
+# Temporary browser profile used for local PDF export
+docs/chrome-profile/
+
 # Logs
 logs/
 *.log

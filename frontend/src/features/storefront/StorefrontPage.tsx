@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties, type FormEvent } from 'react'
+import BrandLogo from '../../components/BrandLogo'
 import { AnimatePresence, MotionConfig, motion, useMotionValueEvent, useScroll, useSpring } from 'framer-motion'
 import '../../styles/app.css'
 import '../../styles/enhancements.css'
@@ -212,7 +213,7 @@ function Storefront() {
   return <MotionConfig reducedMotion="user"><div className="site-shell">
     <motion.div className="sf-progress" style={{ scaleX: progress }} aria-hidden="true" />
     <motion.header className={`topbar${scrolled ? ' is-scrolled' : ''}`} initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease }}>
-      <a className="brand" href="/"><motion.span className="brand-mark" whileHover={{ rotate: -8, scale: 1.1 }} whileTap={{ scale: 0.92 }}>M</motion.span><span>matériel<span className="brand-dot">.</span></span></a>
+      <a className="brand" href="/"><BrandLogo /></a>
       <nav className="main-nav" aria-label="Navigation principale" onMouseLeave={() => setHovered(null)}>
         {navLinks.map((link) => <a key={link.id} href={link.href} className={active === link.id ? 'is-active' : undefined} aria-current={active === link.id ? 'true' : undefined} onMouseEnter={() => setHovered(link.id)} onFocus={() => setHovered(link.id)}>
           {link.label}{underlineTarget === link.id && <motion.i className="sf-underline" layoutId="storefront-nav-underline" transition={{ type: 'spring', stiffness: 360, damping: 30 }} />}
@@ -299,7 +300,7 @@ function Storefront() {
       <motion.section className="closing-banner" initial={{ opacity: 0, y: 30, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.7, ease }}><div><p className="eyebrow"><span className="eyebrow-line" /> VOTRE PROCHAIN PROJET COMMENCE ICI</p><h2>Alors, on s’y met ?</h2></div><a href="#catalogue" className="primary-button sf-shine">Trouver mon matériel <span>↗</span></a><span className="banner-spark">✳</span></motion.section>
     </main>
 
-    <motion.footer className="footer" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55 }}><a className="brand" href="/"><span className="brand-mark">M</span><span>matériel<span className="brand-dot">.</span></span></a><span>Le bon matériel, pour vos idées.</span><span>© 2026 · FAIT POUR FAIRE</span></motion.footer>
+    <motion.footer className="footer" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55 }}><a className="brand" href="/"><BrandLogo /></a><span>Le bon matériel, pour vos idées.</span><span>© 2026 · FAIT POUR FAIRE</span></motion.footer>
 
     <AnimatePresence>{notice && <motion.div key="toast" className="toast" role="status" initial={{ opacity: 0, filter: 'blur(6px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} exit={{ opacity: 0, filter: 'blur(6px)' }} transition={{ duration: 0.3 }}><span>✓</span>{notice}</motion.div>}</AnimatePresence>
 
@@ -315,7 +316,7 @@ function Storefront() {
     <AnimatePresence>{showOrders && <OrdersPanel key="orders" token={authToken} onClose={() => setShowOrders(false)} onLogout={() => { localStorage.removeItem('location-token'); setAuthToken(''); setShowOrders(false) }} />}</AnimatePresence>
 
     <AnimatePresence>{authMode && <motion.div key="auth" className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} onMouseDown={(event) => { if (event.target === event.currentTarget) setAuthMode(null) }}><motion.section className="auth-modal" initial={{ opacity: 0, y: 40, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 30, scale: 0.97 }} transition={{ duration: 0.4, ease }}>
-      <button className="close-button auth-close" onClick={() => setAuthMode(null)} aria-label="Fermer">×</button><span className="brand-mark auth-mark">M</span><p className="eyebrow">VOTRE ESPACE CLIENT</p><h2>{authMode === 'connexion' ? 'Heureux de vous revoir.' : 'On fait connaissance ?'}</h2>
+      <button className="close-button auth-close" onClick={() => setAuthMode(null)} aria-label="Fermer">×</button><BrandLogo className="auth-mark" showWordmark={false} /><p className="eyebrow">VOTRE ESPACE CLIENT</p><h2>{authMode === 'connexion' ? 'Heureux de vous revoir.' : 'On fait connaissance ?'}</h2>
       <p className="auth-intro">{authMode === 'connexion' ? 'Connectez-vous pour envoyer votre demande de réservation.' : 'Créez votre compte pour envoyer et suivre vos demandes.'}</p>
       <form onSubmit={authenticate}>{authMode === 'inscription' && <div className="auth-name-fields"><label>Prénom<input name="prenom" autoComplete="given-name" required /></label><label>Nom<input name="nom" autoComplete="family-name" required /></label></div>}
         <label>Adresse e-mail<input type="email" name="email" autoComplete="email" required /></label><label>Mot de passe<input type="password" name="password" autoComplete={authMode === 'connexion' ? 'current-password' : 'new-password'} minLength={8} required /></label>

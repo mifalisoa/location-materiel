@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from 'react'
+import BrandLogo from '../../components/BrandLogo'
 import { AnimatePresence, MotionConfig, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { eventCollections, type EventCollection } from './eventCatalog'
 import { AnimatedText, Counter, FadeIn, Magnetic, MotionCursor, ReadingProgress, ScrollParallax, StaggerContainer, StaggerItem, TiltCard } from './motion/MotionComponents'
@@ -102,7 +103,7 @@ function LandingNav() {
       <span><Icon name="clock" /> {CONTACT.hours}</span>
     </div>
     <motion.header className={`landing-header${scrolled ? ' is-scrolled' : ''}`} initial={reduced ? false : { y: -28, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: reduced ? 0 : 0.65, ease: smoothEase }}>
-      <a className="landing-brand" href="/" aria-label="Accueil"><motion.span className="landing-mark" whileHover={reduced ? undefined : { rotate: -8, scale: 1.1 }} whileTap={{ scale: 0.92 }}>M</motion.span><span>matériel<span className="landing-dot">.</span></span></a>
+      <a className="landing-brand" href="/" aria-label="Accueil"><BrandLogo /></a>
       <nav aria-label="Navigation principale" onMouseLeave={() => setHovered(null)}>
         {navLinks.map((link) => {
           const isActive = link.href === `#${active}`
@@ -314,7 +315,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="landing-footer">
-        <a className="landing-brand" href="/"><span className="landing-mark">M</span><span>matériel<span className="landing-dot">.</span></span></a>
+        <a className="landing-brand" href="/"><BrandLogo /></a>
         <span>Le matériel qui accompagne vos grands moments.</span>
         <a href="/catalogue">Entrer dans la boutique</a>
         <small>© 2026 · Location événementielle</small>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conception — Location de matériel événementiel</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; color: #172b35; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; line-height: 1.42; }
+  body { background: #e8eef0; }
+  .page { width: 100%; min-height: 270mm; margin: 0 auto; padding: 4mm 2mm 12mm; position: relative; background: white; page-break-after: always; break-after: page; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  .topline { display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #d9e3e5; padding-bottom: 7px; margin-bottom: 17px; color:#557079; font-size:8pt; text-transform:uppercase; letter-spacing:.12em; }
+  .brand { color:#0f6d70; font-weight:700; }
+  h1,h2,h3,h4,p { margin-top:0; }
+  h1 { font-size:30pt; line-height:1.06; letter-spacing:-.035em; color:#12323b; margin-bottom:14px; }
+  h2 { font-size:20pt; line-height:1.15; color:#12323b; margin-bottom:9px; }
+  h3 { font-size:12pt; color:#0f6d70; margin: 0 0 6px; }
+  h4 { font-size:10pt; margin: 0 0 4px; color:#183d47; }
+  p { margin-bottom:8px; }
+  .muted { color:#587078; }
+  .small { font-size:8.5pt; }
+  .eyebrow { color:#c4753d; text-transform:uppercase; letter-spacing:.15em; font-size:8pt; font-weight:700; margin-bottom:8px; }
+  .accent { color:#0f7778; }
+  .cover { min-height:270mm; color:#eff9f7; background:linear-gradient(145deg,#0d303b 0%,#124b51 58%,#0f7778 100%); border-radius:3mm; padding:19mm 17mm; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; position:relative; }
+  .cover:after { content:""; position:absolute; width:120mm; height:120mm; right:-48mm; top:25mm; border:1px solid rgba(255,255,255,.13); border-radius:50%; box-shadow:0 0 0 18mm rgba(255,255,255,.025),0 0 0 37mm rgba(255,255,255,.02); }
+  .cover h1 { color:white; font-size:36pt; max-width:145mm; }
+  .cover .eyebrow { color:#f6bd83; }
+  .cover p { color:#d7e9e6; font-size:13pt; max-width:135mm; }
+  .cover-meta { display:flex; gap:10mm; border-top:1px solid rgba(255,255,255,.25); padding-top:7mm; font-size:9pt; color:#d7e9e6; }
+  .cover-meta strong { display:block; color:#fff; font-size:10pt; margin-bottom:3px; }
+  .lead { font-size:12pt; color:#46616a; max-width:170mm; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+  .card { border:1px solid #dce7e8; border-radius:8px; padding:10px 11px; background:#fbfdfd; break-inside:avoid; }
+  .card.tint { background:#eef7f6; border-color:#cfe4e1; }
+  .card.warm { background:#fff6ef; border-color:#f0ddce; }
+  .card.dark { background:#123b44; border-color:#123b44; color:#eaf5f3; }
+  .card.dark h3,.card.dark h4 { color:#9de0d5; }
+  ul { margin:4px 0 0; padding-left:17px; }
+  li { margin:0 0 4px; }
+  .pill { display:inline-block; padding:3px 7px; border-radius:20px; background:#e7f4f2; color:#0d6669; font-size:8pt; font-weight:700; margin:0 4px 4px 0; }
+  .note { padding:9px 11px; background:#f2f7f8; border-left:3px solid #198184; border-radius:3px; margin:8px 0; }
+  .warn { border-left-color:#d38b47; background:#fff7ef; }
+  .diagram { display:flex; align-items:stretch; gap:5px; margin:10px 0; }
+  .node { flex:1; border:1px solid #cfe0e2; border-radius:7px; padding:8px; background:#f7fbfb; text-align:center; font-size:8.5pt; }
+  .node strong { display:block; color:#0f6d70; margin-bottom:3px; }
+  .arrow { align-self:center; color:#c4753d; font-weight:bold; font-size:14pt; }
+  .state { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin:10px 0; }
+  .state .node { min-height:48px; }
+  .state .terminal { background:#fff5ed; border-color:#f0d5bf; }
+  .table { width:100%; border-collapse:collapse; margin:7px 0 10px; font-size:8.5pt; }
+  .table th { text-align:left; color:#fff; background:#164b53; padding:6px; }
+  .table td { border-bottom:1px solid #dce6e7; padding:6px; vertical-align:top; }
+  .table tr:nth-child(even) td { background:#f7fafb; }
+  .code { font-family:Consolas,monospace; font-size:8.5pt; background:#eef3f4; padding:2px 4px; border-radius:3px; }
+  .footer { position:absolute; bottom:1mm; left:2mm; right:2mm; border-top:1px solid #dce5e6; padding-top:5px; display:flex; justify-content:space-between; color:#779097; font-size:7.5pt; }
+  .cover .footer { border-color:rgba(255,255,255,.24); color:#c5dedb; }
+  .cover .footer .brand { color:#d4f1ea; }
+  .spacer { height:5px; }
+  @media screen { .page { max-width:210mm; margin:10mm auto; padding:14mm; box-shadow:0 5px 24px #173b4418; } .cover { min-height:245mm; } }
+  @media print { body { background:white; } .page { min-height:270mm; margin:0; padding:4mm 2mm 12mm; box-shadow:none; } .cover { min-height:254mm; } }
+</style>
+</head>
+<body>
+<section class="page">
+  <div class="cover">
+    <div><div class="eyebrow">Conception fonctionnelle et technique</div><h1>Location de matériel événementiel</h1><p>Une plateforme pour découvrir des équipements par type d’événement, vérifier le stock, envoyer une demande de location et gérer les opérations du loueur.</p></div>
+    <div class="cover-meta"><div><strong>Document</strong>Architecture, données et flux métier</div><div><strong>Édition</strong>18 novembre 2026</div><div><strong>État</strong>Application déployée en démonstration</div></div>
+    <div class="footer"><span class="brand">LOCATION ÉVÉNEMENTIELLE</span><span>Conception du projet · 2026</span></div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">01 · Vision du produit</span><span>Conception du projet</span></div>
+  <div class="eyebrow">Objectif et périmètre</div><h2>Un parcours clair pour le client et le loueur</h2>
+  <p class="lead">Le site public transforme le catalogue en parcours de réservation. L’espace d’administration donne au loueur les outils pour contrôler les disponibilités, suivre le matériel et traiter les demandes au même endroit.</p>
+  <div class="grid2">
+    <div class="card tint"><h3>Client — parcours public</h3><ul><li>Consulter le catalogue sans compte, classé par événements : mariage, conférence, gala, fête privée, concert/festival et événements ajoutés par l’admin.</li><li>Choisir les dates, consulter les quantités disponibles et composer un panier avec estimation du prix et de la caution.</li><li>Créer un compte ou se connecter, puis envoyer une demande de réservation.</li><li>Suivre ses réservations, consulter leur statut, échanger des messages et télécharger la facture PDF.</li></ul></div>
+    <div class="card warm"><h3>Admin — opérations du loueur</h3><ul><li>Gérer événements, catégories, articles, prix, quantités, état du matériel et indisponibilités.</li><li>Consulter les demandes, le planning, les clients et l’historique des statuts.</li><li>Confirmer ou refuser une demande, avec motif de refus.</li><li>Créer une réservation manuelle pour un appel ou une visite en boutique.</li><li>Gérer les contrôles de sortie/retour, paiements, cautions et communications.</li></ul></div>
+  </div>
+  <h3 style="margin-top:13px">Principes métier</h3>
+  <div class="grid3"><div class="card"><h4>Stock fiable</h4><p class="small">Le serveur recalcule la disponibilité avant d’enregistrer une demande ; le navigateur n’est jamais la source de vérité.</p></div><div class="card"><h4>Prix traçable</h4><p class="small">Le tarif unitaire et le nombre de jours sont copiés dans chaque ligne pour figer le prix convenu.</p></div><div class="card"><h4>Cycle visible</h4><p class="small">Chaque changement de statut est inscrit dans l’historique avec l’acteur et un commentaire lorsque disponible.</p></div></div>
+  <div class="note"><strong>Hors périmètre de la démonstration actuelle :</strong> paiement en ligne automatisé, envoi réel d’e-mails sans SMTP configuré et disponibilité continue du service gratuit.</div>
+  <div class="footer"><span>Location de matériel événementiel</span><span>01</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">02 · Architecture</span><span>Application et hébergement</span></div>
+  <div class="eyebrow">Vue technique</div><h2>Trois composants, un flux de données sécurisé</h2>
+  <div class="diagram">
+    <div class="node"><strong>Navigateur</strong>React + TypeScript<br>Vite · landing · catalogue<br>panier · espace client/admin</div><div class="arrow">→</div>
+    <div class="node"><strong>Site statique Render</strong>Ressources compilées<br>route /api réécrite<br>vers le backend</div><div class="arrow">→</div>
+    <div class="node"><strong>API Render</strong>NestJS + TypeScript<br>JWT · règles métier<br>TypeORM · tâches planifiées</div><div class="arrow">→</div>
+    <div class="node"><strong>TiDB Cloud</strong>MySQL compatible<br>connexion TLS<br>base location_projet</div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Frontend</h3><p class="small">L’application React est regroupée sous <span class="code">frontend/src</span> : authentification, landing/catalogue, panier, interface admin, composants d’opérations et animations Motion. Le panier est conservé côté navigateur.</p><p class="small">En production, le navigateur appelle les chemins <span class="code">/api/…</span>. Render transmet ces chemins à l’API par une règle de réécriture ; en développement Vite utilise son proxy local.</p></div>
+    <div class="card"><h3>Backend</h3><p class="small">L’API NestJS est organisée par domaines : auth, catalogue, événements, disponibilité, réservations, clients, communications et données. Les routes protégées exigent un JWT ; les actions d’administration exigent aussi le rôle ADMIN.</p><p class="small">TypeORM relie les entités à TiDB. TLS est activé avec <span class="code">DB_SSL=true</span>. Une tâche planifiée expire les demandes provisoires chaque minute et au démarrage.</p></div>
+  </div>
+  <h3 style="margin-top:12px">Hébergement de démonstration</h3>
+  <table class="table"><thead><tr><th>Élément</th><th>Service actuel</th><th>Responsabilité</th></tr></thead><tbody>
+    <tr><td>Site React</td><td>Render Static Site</td><td>Build Vite, fichiers statiques, routes frontend et proxy /api.</td></tr>
+    <tr><td>API</td><td>Render Web Service</td><td>Serveur NestJS, règles de réservation, accès base et tâches.</td></tr>
+    <tr><td>Base</td><td>TiDB Cloud Starter</td><td>Données persistantes MySQL compatibles, TLS sur l’accès public.</td></tr>
+  </tbody></table>
+  <div class="note warn"><strong>Limite du palier gratuit :</strong> l’API Render s’endort après une période d’inactivité et le réveil peut être lent. Les tâches planifiées ne s’exécutent pas pendant le sommeil ; cette architecture convient à une démonstration, pas à un service exigeant une disponibilité continue.</div>
+  <div class="footer"><span>Architecture de déploiement</span><span>02</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">03 · Modèle de données</span><span>Entités principales</span></div>
+  <div class="eyebrow">Base location_projet</div><h2>Les objets qui portent le métier</h2>
+  <div class="grid3">
+    <div class="card tint"><h3>Catalogue</h3><p class="small"><b>categories</b> 1 → N <b>articles</b>. Un article porte le prix journalier, la caution, le stock total, la marge de préparation et son état actif.</p></div>
+    <div class="card tint"><h3>Événements</h3><p class="small"><b>evenements</b> N ↔ N <b>articles</b> par <b>evenement_articles</b>. Cela permet de présenter le même équipement dans plusieurs contextes.</p></div>
+    <div class="card"><h3>Identités</h3><p class="small"><b>utilisateurs</b> contient le rôle CLIENT ou ADMIN et le hash du mot de passe. <b>clients</b> porte la fiche métier ; son lien utilisateur peut être nul pour un client boutique/téléphone.</p></div>
+    <div class="card warm"><h3>Location</h3><p class="small"><b>reservations</b> porte référence, client, dates, statut, remise/livraison, totaux, notes et trace de traitement. <b>lignes_reservation</b> conserve article, quantité, prix/jour, jours et total figés.</p></div>
+    <div class="card"><h3>Disponibilité</h3><p class="small"><b>indisponibilites</b> retranche des unités du stock sur une période, par exemple réparation, hors service ou autre motif.</p></div>
+    <div class="card"><h3>Suivi et communication</h3><p class="small"><b>historique_statuts</b>, <b>suivi_reservation_materiel</b>, <b>paiements_reservation</b>, <b>messages</b> et <b>notifications</b> rendent les opérations consultables.</p></div>
+  </div>
+  <h3 style="margin-top:13px">Relations simplifiées</h3>
+  <div class="diagram"><div class="node"><strong>Utilisateur</strong>CLIENT / ADMIN</div><div class="arrow">1—0..1</div><div class="node"><strong>Client</strong>fiche + coordonnées</div><div class="arrow">1—N</div><div class="node"><strong>Réservation</strong>dates + statut</div><div class="arrow">1—N</div><div class="node"><strong>Ligne</strong>article + quantité + prix figé</div></div>
+  <div class="diagram"><div class="node"><strong>Réservation</strong></div><div class="arrow">1—N</div><div class="node">Paiements / cautions</div><div class="arrow">·</div><div class="node">Contrôles sortie / retour</div><div class="arrow">·</div><div class="node">Messages / historique / notifications</div></div>
+  <div class="note"><strong>Traçabilité financière :</strong> les montants sont enregistrés en entiers (unités monétaires), avec lignes de paiement distinctes pour location, remboursement, caution reçue et caution restituée.</div>
+  <div class="footer"><span>Modèle logique — 14 tables principales</span><span>03</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">04 · Flux client</span><span>Demande en ligne</span></div>
+  <div class="eyebrow">Du catalogue au retour</div><h2>Réserver en ligne, étape par étape</h2>
+  <div class="diagram"><div class="node"><strong>1 · Découvrir</strong>Catalogue public<br>événement / article</div><div class="arrow">→</div><div class="node"><strong>2 · Préparer</strong>Dates + quantités<br>prix estimé</div><div class="arrow">→</div><div class="node"><strong>3 · S’identifier</strong>Compte CLIENT<br>connexion / inscription</div><div class="arrow">→</div><div class="node"><strong>4 · Envoyer</strong>API revalide le stock<br>transaction + lignes</div></div>
+  <div class="state">
+    <div class="node"><strong>PANIER</strong>Navigateur uniquement</div><div class="node"><strong>PROVISOIRE</strong>Bloque le stock<br>expiration configurée (48 h par défaut)</div><div class="node"><strong>FERME</strong>Demande validée<br>stock confirmé</div><div class="node"><strong>EN_COURS</strong>Matériel sorti<br>location active</div>
+  </div>
+  <div class="diagram"><div class="node"><strong>Retour contrôlé</strong>état / quantité<br>consignés</div><div class="arrow">→</div><div class="node"><strong>TERMINEE</strong>Location terminée<br>paiement / caution suivis</div></div>
+  <div class="grid3">
+    <div class="card warm"><h3>REFUSEE</h3><p class="small">L’admin refuse avec un motif obligatoire. Le stock redevient disponible.</p></div>
+    <div class="card warm"><h3>EXPIREE</h3><p class="small">Le délai provisoire est dépassé. La tâche planifiée libère le stock et écrit l’historique.</p></div>
+    <div class="card warm"><h3>ANNULEE</h3><p class="small">Le client peut annuler une réservation PROVISOIRE ou FERME. L’historique conserve la transition.</p></div>
+  </div>
+  <h3 style="margin-top:12px">Interactions après l’envoi</h3>
+  <ul><li>Le client consulte ses réservations et leur statut avec la référence, les dates et les montants.</li><li>Des notifications sont créées pour les nouvelles demandes et changements de statut ; les messages sont liés à une réservation.</li><li>Une facture PDF peut être téléchargée depuis la réservation selon les droits du demandeur.</li><li>Une demande refusée, expirée ou annulée ne consomme plus de stock sur la période.</li></ul>
+  <div class="footer"><span>Flux de réservation en ligne</span><span>04</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">05 · Stock et prix</span><span>Règles de calcul</span></div>
+  <div class="eyebrow">Disponibilité vérifiée côté serveur</div><h2>Éviter la double réservation</h2>
+  <p>Pour chaque article et chaque date demandée, le backend calcule l’occupation maximale observée sur la période : réservations actives + unités indisponibles. Les statuts qui bloquent le stock sont <span class="pill">PROVISOIRE non expirée</span><span class="pill">FERME</span><span class="pill">EN_COURS</span>.</p>
+  <div class="card dark" style="text-align:center;padding:14px;margin:9px 0"><h3 style="font-size:13pt">Disponible = max(0, stock total − occupation maximale)</h3><p class="small" style="margin:0;color:#d6e9e6">L’occupation inclut les indisponibilités, et la marge de préparation de l’article prolonge la période occupée après la fin de location.</p></div>
+  <div class="grid2">
+    <div class="card"><h3>Contrôle transactionnel</h3><ol style="margin:3px 0 0;padding-left:18px"><li>Verrouiller les articles demandés dans un ordre stable.</li><li>Recalculer l’occupation en base, y compris pour les demandes concurrentes.</li><li>Refuser si le stock restant est inférieur à la quantité demandée.</li><li>Créer la réservation, ses lignes tarifées et l’historique dans la même transaction.</li></ol></div>
+    <div class="card"><h3>Calcul financier</h3><p class="small"><b>Nombre de jours</b> = jours calendaires du début à la fin, bornes incluses.</p><p class="small"><b>Total ligne</b> = quantité × prix journalier figé × nombre de jours.</p><p class="small"><b>Caution totale</b> = somme des cautions unitaires × quantités.</p><p class="small">Les montants sont recalculés par l’API, même si le front affiche une estimation.</p></div>
+  </div>
+  <div class="note warn"><strong>Réservation manuelle avec stock forcé :</strong> l’admin peut explicitement activer le contournement de stock. Le booléen <span class="code">stock_force</span> permet de tracer cette exception ; elle doit rester exceptionnelle et contrôlée.</div>
+  <h3>Pourquoi la marge de préparation compte</h3><p class="small">Un article loué jusqu’au 20 avec une marge de deux jours est traité comme occupé jusqu’au 22 pour le calcul de chevauchement. Cela évite de proposer le même matériel avant sa préparation au prochain départ.</p>
+  <div class="footer"><span>Disponibilité, concurrence et tarification</span><span>05</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">06 · Flux administrateur</span><span>Opérations du loueur</span></div>
+  <div class="eyebrow">Demande, planning et matériel</div><h2>Traiter une location de bout en bout</h2>
+  <div class="grid2">
+    <div class="card"><h3>A. Demande en ligne</h3><ol style="margin:3px 0 0;padding-left:18px"><li>Consulter la liste des demandes et le planning.</li><li>Ouvrir le détail client, les dates, les articles et les montants.</li><li>Valider en FERME ou refuser en indiquant le motif.</li><li>La décision est historisée et le client reçoit une notification applicative.</li></ol></div>
+    <div class="card"><h3>B. Réservation téléphone / boutique</h3><ol style="margin:3px 0 0;padding-left:18px"><li>Retrouver ou créer une fiche client, avec ou sans compte.</li><li>Choisir articles, quantités, dates, retrait ou livraison.</li><li>Vérifier le stock et créer en PROVISOIRE (devis) ou FERME.</li><li>Une option stock forcé permet une exception explicitement tracée.</li></ol></div>
+  </div>
+  <h3 style="margin-top:12px">Sortie et retour du matériel</h3>
+  <div class="diagram"><div class="node"><strong>FERME</strong>Réservation prête</div><div class="arrow">→</div><div class="node"><strong>Contrôle SORTIE</strong>Chaque ligne : quantité<br>état BON / ABIME</div><div class="arrow">→</div><div class="node"><strong>EN_COURS</strong>Matériel loué</div><div class="arrow">→</div><div class="node"><strong>Contrôle RETOUR</strong>Quantité + BON<br>ABIME / MANQUANT</div><div class="arrow">→</div><div class="node"><strong>TERMINEE</strong>Retour archivé</div></div>
+  <div class="grid2"><div class="card tint"><h3>Si le matériel est abîmé</h3><p class="small">Conserver le contrôle de retour et créer une indisponibilité pour la quantité concernée (réparation, hors service ou autre). Cela réduit la disponibilité future.</p></div><div class="card tint"><h3>Encaissements et caution</h3><p class="small">Enregistrer les paiements de location, remboursements, cautions reçues et cautions restituées avec le mode, le montant, une référence facultative et l’admin responsable.</p></div></div>
+  <div class="note"><strong>Contrôles de cohérence :</strong> le contrôle de sortie/retour doit couvrir exactement la quantité réservée par ligne. Un retour ou une sortie est enregistré comme opération de suivi liée à la réservation.</div>
+  <div class="footer"><span>Opérations quotidiennes du loueur</span><span>06</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">07 · API et accès</span><span>Responsabilités principales</span></div>
+  <div class="eyebrow">Surface fonctionnelle de l’API</div><h2>Les écrans s’appuient sur des routes par domaine</h2>
+  <table class="table"><thead><tr><th>Usage</th><th>Routes principales</th><th>Accès</th></tr></thead><tbody>
+    <tr><td>Catalogue / événements</td><td><span class="code">GET /api/articles</span>, <span class="code">GET /api/catalogue/categories</span>, <span class="code">GET /api/evenements</span></td><td>Public</td></tr>
+    <tr><td>Disponibilité</td><td><span class="code">GET /api/disponibilite?debut=…&amp;fin=…</span></td><td>Public</td></tr>
+    <tr><td>Identité</td><td><span class="code">POST /api/auth/inscription</span>, <span class="code">POST /api/auth/connexion</span></td><td>Public, réponse JWT</td></tr>
+    <tr><td>Réservation client</td><td><span class="code">POST /api/reservations</span>, <span class="code">GET /api/reservations/moi</span>, <span class="code">PATCH /api/reservations/:id/annuler</span></td><td>JWT CLIENT</td></tr>
+    <tr><td>Décision / opérations admin</td><td><span class="code">GET /api/reservations</span>, <span class="code">POST /api/reservations/manuelles</span>, routes decision/status/sortie/retour/paiements</td><td>JWT + rôle ADMIN</td></tr>
+    <tr><td>Communications</td><td><span class="code">GET/POST /api/reservations/:id/messages</span>, <span class="code">GET /api/notifications</span></td><td>Utilisateur authentifié</td></tr>
+    <tr><td>Facture</td><td><span class="code">GET /api/reservations/:id/facture</span></td><td>Propriétaire ou admin selon les droits métier</td></tr>
+  </tbody></table>
+  <div class="grid2">
+    <div class="card"><h3>Authentification et rôles</h3><p class="small">Les identifiants sont stockés avec un hash de mot de passe. Le JWT porte l’identité et le rôle ; les gardes NestJS protègent les routes client et admin. Les anciens jetons deviennent invalides si <span class="code">JWT_SECRET</span> change.</p></div>
+    <div class="card"><h3>Règles d’accès</h3><p class="small">Les lectures publiques ne donnent pas accès aux données privées. Les contrôles admin s’appliquent aux actions de gestion, décisions, clients, stocks, opérations et paiements.</p></div>
+  </div>
+  <div class="footer"><span>Contrats d’API résumés</span><span>07</span></div>
+</section>
+
+<section class="page">
+  <div class="topline"><span class="brand">08 · Cycle de vie et pilotage</span><span>État du projet</span></div>
+  <div class="eyebrow">Synthèse de conception</div><h2>Le parcours complet en une vue</h2>
+  <div class="diagram"><div class="node"><strong>Catalogue public</strong>événement<br>article / dates</div><div class="arrow">→</div><div class="node"><strong>Panier local</strong>quantités<br>prix estimé</div><div class="arrow">→</div><div class="node"><strong>API + transaction</strong>validation stock<br>prix figé + historique</div><div class="arrow">→</div><div class="node"><strong>PROVISOIRE</strong>stock bloqué<br>timer d’expiration</div></div>
+  <div class="diagram"><div class="node"><strong>Admin décide</strong>confirmer / refuser<br>ou expiration auto</div><div class="arrow">→</div><div class="node"><strong>FERME</strong>créneau réservé</div><div class="arrow">→</div><div class="node"><strong>Sortie matériel</strong>contrôle état / quantité</div><div class="arrow">→</div><div class="node"><strong>EN_COURS</strong>location active</div><div class="arrow">→</div><div class="node"><strong>Retour</strong>paiement / caution<br>réparation si besoin</div></div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="card tint"><h3>Déjà en place</h3><ul><li>Frontend React/Vite et API NestJS déployés séparément sur Render.</li><li>TiDB Cloud relié en TLS ; le catalogue, l’authentification et les opérations sont servis par l’API.</li><li>Panier navigateur, réservation transactionnelle, statuts, contrôles de matériel, paiements/cautions, messages, notifications et facture PDF.</li><li>Expiration provisoire exécutée au démarrage et chaque minute tant que le service tourne.</li></ul></div>
+    <div class="card warm"><h3>À terminer / vérifier en production</h3><ul><li>Confirmer la règle Render <span class="code">/api/*</span> → API et le fallback frontend <span class="code">/*</span> → <span class="code">/index.html</span>.</li><li>Configurer <span class="code">CORS_ORIGIN</span> avec l’origine publique exacte du site.</li><li>Renouveler les clés Observe qui ont été partagées puis les configurer côté Render.</li><li>Configurer un transport SMTP si les e-mails doivent réellement partir.</li><li>Vérifier rôle admin, catalogue, connexion, réservation, décision, sortie/retour et facture sur les URL publiques.</li></ul></div>
+  </div>
+  <div class="note warn"><strong>Point de vigilance :</strong> les identifiants privés restent dans les variables d’environnement Render, jamais dans Git. Le service gratuit est un environnement de démonstration ; prévoir sauvegardes, surveillance, disponibilité et plan d’hébergement avant un usage commercial régulier.</div>
+  <div class="footer"><span>Fin · Conception projetée à partir du code et du flux déployé</span><span>08</span></div>
+</section>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.56em;
+  color: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.brand-lockup__image {
+  display: block;
+  width: 1.95em;
+  height: 1.95em;
+  min-width: 34px;
+  min-height: 34px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 2px 5px rgb(25 48 75 / 16%));
+}
+
+.brand-lockup__name {
+  color: inherit;
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.brand-lockup--mark-only .brand-lockup__image {
+  width: 46px;
+  height: 46px;
+}
+
+.login__brand .brand-lockup { z-index: 2; }
+.auth-mark { display: inline-flex; margin-bottom: 18px; }
+
+@media (max-width: 640px) {
+  .brand-lockup__image { min-width: 32px; min-height: 32px; }
+}

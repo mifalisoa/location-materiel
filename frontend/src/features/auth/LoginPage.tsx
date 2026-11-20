@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import BrandLogo from "../../components/BrandLogo";
 import "../../styles/login.css";
 
 type LoginPageProps = {
@@ -66,10 +67,7 @@ export default function LoginPage({ onLogin, onForgotPassword, onBackToSite }: L
           <circle cx="620" cy="780" r="4" />
         </svg>
 
-        <div className="login__brand">
-          <span className="login__logo">{Icon.wrench}</span>
-          Location Matériel
-        </div>
+        <div className="login__brand"><BrandLogo /></div>
 
         <div className="login__headline">
           <h1>

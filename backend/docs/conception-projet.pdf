@@ -1,0 +1,458 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R] /Count 9 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1520 >>
+stream
+q 0.060 0.190 0.230 rg 0 0 595 842 re f Q
+q 0.060 0.430 0.450 rg 0 0 595 15 re f Q
+q 0.070 0.270 0.300 rg 405 390 190 470 re f Q
+q 0.150 0.470 0.480 RG 1.2 w 390 300 m 595 505 l S Q
+q 0.150 0.470 0.480 RG 1.2 w 425 260 m 595 430 l S Q
+q 0.960 0.720 0.480 rg BT /F2 9 Tf 1 0 0 1 54.00 724.00 Tm (CONCEPTION FONCTIONNELLE ET TECHNIQUE) Tj ET Q
+q 1.000 1.000 1.000 rg BT /F2 31 Tf 1 0 0 1 54.00 650.00 Tm (LOCATION DE) Tj ET Q
+q 1.000 1.000 1.000 rg BT /F2 36 Tf 1 0 0 1 54.00 609.00 Tm (MATERIEL) Tj ET Q
+q 0.460 0.840 0.780 rg BT /F2 34 Tf 1 0 0 1 54.00 568.00 Tm (EVENEMENTIEL) Tj ET Q
+q 0.860 0.930 0.920 rg BT /F1 13 Tf 1 0 0 1 56.00 504.00 Tm (Catalogue par evenement, demandes de location,) Tj ET Q
+q 0.860 0.930 0.920 rg BT /F1 13 Tf 1 0 0 1 56.00 484.00 Tm (gestion du stock et suivi des operations du loueur.) Tj ET Q
+q 0.250 0.480 0.490 rg 55 390 485 1 re f Q
+q 0.480 0.840 0.790 rg BT /F2 8 Tf 1 0 0 1 56.00 358.00 Tm (DOCUMENT) Tj ET Q
+q 1.000 1.000 1.000 rg BT /F1 11 Tf 1 0 0 1 56.00 338.00 Tm (Architecture, donnees et flux metier) Tj ET Q
+q 0.480 0.840 0.790 rg BT /F2 8 Tf 1 0 0 1 56.00 291.00 Tm (EDITION) Tj ET Q
+q 1.000 1.000 1.000 rg BT /F1 11 Tf 1 0 0 1 56.00 271.00 Tm (18 novembre 2026) Tj ET Q
+q 0.480 0.840 0.790 rg BT /F2 8 Tf 1 0 0 1 56.00 224.00 Tm (DEPLOIEMENT) Tj ET Q
+q 1.000 1.000 1.000 rg BT /F1 11 Tf 1 0 0 1 56.00 204.00 Tm (Demonstration - Render + TiDB Cloud) Tj ET Q
+q 0.720 0.850 0.830 rg BT /F2 8 Tf 1 0 0 1 56.00 46.00 Tm (LOCATION EVENEMENTIELLE  /  CONCEPTION DU PROJET) Tj ET Q
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 3511 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  01) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Vision du produit) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (Une plateforme de location qui relie le catalogue public aux opérations quotidiennes du) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 737.00 Tm (loueur.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 709 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 712.00 Tm (Client - parcours public) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 693.00 Tm (- Parcourir le matériel par événement : mariage, conférence, gala, fête privée,) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 680.50 Tm (concert/festival, et événements ajoutés par le loueur.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 666.00 Tm (- Choisir les dates, consulter les disponibilités, composer un panier et estimer prix et) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 653.50 Tm (caution.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 639.00 Tm (- Créer un compte ou se connecter pour envoyer une demande, puis suivre les réservations et) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 626.50 Tm (télécharger une facture PDF.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 612.00 Tm (- Échanger des messages liés à une réservation et consulter les notifications applicatives.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 591.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 594.50 Tm (Admin - gestion du loueur) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 575.50 Tm (- Gérer événements, catégories, articles, tarifs, stock et indisponibilités.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 561.00 Tm (- Voir les demandes et le planning, gérer les fiches clients, confirmer ou refuser une) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 548.50 Tm (réservation.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 534.00 Tm (- Créer des réservations manuelles pour les appels ou visites en boutique.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 519.50 Tm (- Suivre l'état du matériel à la sortie et au retour, les paiements, les cautions et les) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 507.00 Tm (échanges.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 486.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 489.50 Tm (Principes de conception) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 470.50 Tm (- Le serveur recalcule le stock et les montants ; le navigateur ne fait qu'afficher une) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 458.00 Tm (estimation.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 443.50 Tm (- Le prix unitaire est figé dans la ligne de réservation au moment de la demande.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 429.00 Tm (- Les transitions importantes sont historisées pour permettre le suivi opérationnel.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (01) Tj ET Q
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4370 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  02) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Architecture technique) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (Le système est séparé en site web, API métier et base de données MySQL compatible.) Tj ET Q
+q 0.960 0.980 0.980 rg 44 689 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 44 689 m 163.25 689 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 51.00 716.00 Tm (Navigateur) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 164.25 707.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 173.25 689 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 173.25 689 m 292.5 689 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 180.25 716.00 Tm (Site React sur) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 180.25 706.00 Tm (Render) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 293.50 707.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 302.5 689 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 302.5 689 m 421.75 689 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 309.50 716.00 Tm (API NestJS sur) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 309.50 706.00 Tm (Render) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 422.75 707.00 Tm (>) Tj ET Q
+q 0.910 0.960 0.950 rg 431.75 689 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 431.75 689 m 551 689 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 438.75 716.00 Tm (TiDB Cloud TLS) Tj ET Q
+q 0.770 0.430 0.220 rg 44 665 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 668.00 Tm (Frontend) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 649.00 Tm (- React, TypeScript et Vite. Les écrans sont regroupés en authentification,) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 636.50 Tm (landing/catalogue, panier, espace client et administration.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 622.00 Tm (- Le panier est conservé dans le navigateur. Les animations sont produites avec) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 609.50 Tm (Motion/Framer Motion.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 595.00 Tm (- En local, Vite relaie les appels API. En production, les chemins /api/* sont réécrits) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 582.50 Tm (vers le Web Service NestJS.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 562 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 565.00 Tm (Backend) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 546.00 Tm (- NestJS et TypeScript, organisé par domaines : auth, catalogue, événements, disponibilité,) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 533.50 Tm (réservations, clients et communications.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 519.00 Tm (- TypeORM accède à TiDB. JWT protège les routes privées ; les actions de gestion exigent le) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 506.50 Tm (rôle ADMIN.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 492.00 Tm (- Une tâche vérifie les réservations provisoires expirées au démarrage et chaque minute) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 479.50 Tm (tant que le service fonctionne.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 459 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 462.00 Tm (Hébergement actuel) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 443.00 Tm (- Render Static Site pour React ; Render Web Service pour NestJS ; TiDB Cloud Starter pour) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 430.50 Tm (les données persistantes.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 416.00 Tm (- Le backend utilise TLS vers TiDB avec DB_SSL=true. Les secrets sont configurés dans les) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 403.50 Tm (variables d'environnement Render, jamais dans Git.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (02) Tj ET Q
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 4394 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  03) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Modèle de données) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (Les 14 tables principales couvrent le catalogue, les réservations, les opérations et la) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 737.00 Tm (communication.) Tj ET Q
+q 0.960 0.980 0.980 rg 44 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 44 675 m 163.25 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 51.00 702.00 Tm (Utilisateur) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 164.25 693.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 173.25 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 173.25 675 m 292.5 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 180.25 702.00 Tm (Fiche client) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 293.50 693.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 302.5 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 302.5 675 m 421.75 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 309.50 702.00 Tm (Réservation) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 422.75 693.00 Tm (>) Tj ET Q
+q 0.910 0.960 0.950 rg 431.75 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 431.75 675 m 551 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 438.75 702.00 Tm (Lignes tarifées) Tj ET Q
+q 0.770 0.430 0.220 rg 44 651 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 654.00 Tm (Catalogue et événements) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 635.00 Tm (- categories > articles : une catégorie regroupe plusieurs articles. Un article porte) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 622.50 Tm (prix/jour, caution, stock total, marge de préparation et état actif.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 608.00 Tm (- evenements ? articles : relation plusieurs-à-plusieurs via evenement_articles ; un) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 595.50 Tm (article peut servir plusieurs types d'événements.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 575 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 578.00 Tm (Clients et locations) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 559.00 Tm (- utilisateurs contient l'e-mail, le hash du mot de passe et le rôle CLIENT ou ADMIN.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 544.50 Tm (- clients porte les coordonnées et les notes admin. Le lien vers utilisateurs est) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 532.00 Tm (facultatif pour les clients sans compte.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 517.50 Tm (- reservations contient référence, dates, statut, source, mode de remise, totaux,) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 505.00 Tm (expiration et traces de traitement.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 490.50 Tm (- lignes_reservation conserve article, quantité, prix journalier unitaire, nombre de jours) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 478.00 Tm (et total de ligne.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 457.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 460.50 Tm (Suivi et historique) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 441.50 Tm (- indisponibilites réduit le stock utilisable pour réparation, hors service ou autre motif.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 427.00 Tm (- historique_statuts conserve les transitions ; suivi_reservation_materiel enregistre les) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 414.50 Tm (contrôles de sortie/retour.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 400.00 Tm (- paiements_reservation, messages et notifications sont reliés aux réservations et aux) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 387.50 Tm (utilisateurs.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (03) Tj ET Q
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 5264 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  04) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Flux de réservation client) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (Le panier devient une demande provisoire uniquement après authentification et validation) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 737.00 Tm (du stock côté serveur.) Tj ET Q
+q 0.960 0.980 0.980 rg 44 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 44 675 m 163.25 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 51.00 702.00 Tm (Catalogue + dates) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 164.25 693.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 173.25 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 173.25 675 m 292.5 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 180.25 702.00 Tm (Panier navigateur) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 293.50 693.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 302.5 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 302.5 675 m 421.75 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 309.50 702.00 Tm (Connexion /) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 309.50 692.00 Tm (inscription) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 422.75 693.00 Tm (>) Tj ET Q
+q 0.910 0.960 0.950 rg 431.75 675 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 431.75 675 m 551 675 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 438.75 702.00 Tm (POST réservation) Tj ET Q
+q 0.770 0.430 0.220 rg 44 651 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 654.00 Tm (Création de la demande) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 635.00 Tm (- Le client sélectionne des articles et quantités. L'interface estime le prix à partir des) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 622.50 Tm (dates et tarifs affichés.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 608.00 Tm (- Après connexion ou inscription, l'API vérifie les dates, l'adresse si livraison et les) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 595.50 Tm (quantités demandées.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 581.00 Tm (- Dans une transaction, l'API verrouille les articles, recalcule l'occupation, puis crée) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 568.50 Tm (réservation, lignes tarifées et historique.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 554.00 Tm (- La réservation en ligne devient PROVISOIRE et bloque le stock jusqu'à traitement ou) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 541.50 Tm (expiration \(48 h par défaut\).) Tj ET Q
+q 0.770 0.430 0.220 rg 44 521 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 524.00 Tm (Cycle de vie) Tj ET Q
+q 0.910 0.960 0.950 rg 44 479 122.25 27 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8.2 Tf 1 0 0 1 50.00 488.00 Tm (PROVISOIRE) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 9 Tf 1 0 0 1 165.25 488.00 Tm (>) Tj ET Q
+q 0.910 0.960 0.950 rg 172.25 479 122.25 27 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8.2 Tf 1 0 0 1 178.25 488.00 Tm (FERME) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 9 Tf 1 0 0 1 293.50 488.00 Tm (>) Tj ET Q
+q 0.910 0.960 0.950 rg 300.5 479 122.25 27 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8.2 Tf 1 0 0 1 306.50 488.00 Tm (EN_COURS) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 9 Tf 1 0 0 1 421.75 488.00 Tm (>) Tj ET Q
+q 0.990 0.950 0.910 rg 428.75 479 122.25 27 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8.2 Tf 1 0 0 1 434.75 488.00 Tm (TERMINEE) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 469.00 Tm (- Admin confirme : PROVISOIRE > FERME ; l'expiration est effacée et le traitement est) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 456.50 Tm (attribué.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 442.00 Tm (- Admin refuse : PROVISOIRE > REFUSEE avec motif ; le stock est libéré.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 427.50 Tm (- Délai dépassé : PROVISOIRE > EXPIREE par tâche planifiée ; le stock est libéré.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 413.00 Tm (- Le client peut annuler PROVISOIRE ou FERME : passage à ANNULEE avec historique.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 392.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 395.50 Tm (Après confirmation) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 376.50 Tm (- Le loueur enregistre la sortie et l'état des unités ; le statut passe à EN_COURS.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 362.00 Tm (- Au retour, les quantités et états sont contrôlés ; la réservation passe à TERMINEE.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 347.50 Tm (- Le client consulte le statut et peut télécharger le PDF de facture selon ses droits.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (04) Tj ET Q
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 3407 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  05) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Disponibilité et tarification) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (La disponibilité dépend du stock, des réservations qui chevauchent les dates et des) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 737.00 Tm (indisponibilités matérielles.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 709 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 712.00 Tm (Règle de stock) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 693.00 Tm (- Les statuts bloquants sont PROVISOIRE non expirée, FERME et EN_COURS.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 678.50 Tm (- Pour chaque jour de la période, l'API additionne les quantités réservées et) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 666.00 Tm (indisponibles, puis retient le pic d'occupation.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 651.50 Tm (- La marge_jours d'un article prolonge la fin d'occupation afin de laisser le temps de) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 639.00 Tm (préparer le matériel.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 624.50 Tm (- Disponible = max\(0, quantité totale ? occupation maximale sur la période\).) Tj ET Q
+q 0.770 0.430 0.220 rg 44 604 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 607.00 Tm (Protection contre la double réservation) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 588.00 Tm (- Les articles sont verrouillés dans la transaction avant de recalculer le stock.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 573.50 Tm (- Si le stock restant est inférieur à la quantité demandée, l'API refuse la demande ; elle) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 561.00 Tm (ne fait pas confiance au panier du navigateur.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 546.50 Tm (- L'admin peut exceptionnellement forcer le stock pour une réservation manuelle ;) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 534.00 Tm (stock_force trace cette décision.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 513.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 516.50 Tm (Calcul du prix) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 497.50 Tm (- Nombre de jours = différence entre dates, bornes incluses.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 483.00 Tm (- Total ligne = quantité x prix journalier figé x nombre de jours.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 468.50 Tm (- Caution totale = somme des cautions unitaires x quantités.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 454.00 Tm (- Montants enregistrés en entiers ; l'API recalcule le total au moment de créer la) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 441.50 Tm (réservation.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (05) Tj ET Q
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 18 0 R >>
+endobj
+18 0 obj
+<< /Length 3948 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  06) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Flux de l'administration) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (L'administration couvre la demande commerciale et les opérations physiques du matériel.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 723 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 726.00 Tm (Demandes et réservations manuelles) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 707.00 Tm (- Demande en ligne : consulter le dossier et les dates, puis confirmer ou refuser avec un) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 694.50 Tm (motif.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 680.00 Tm (- Réservation manuelle : retrouver ou créer un client, sélectionner dates et matériel, puis) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 667.50 Tm (créer en PROVISOIRE ou FERME.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 653.00 Tm (- Les mêmes règles de disponibilité sont utilisées ; une exception de stock forcé est) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 640.50 Tm (explicitement tracée.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 620 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 623.00 Tm (Sortie et retour) Tj ET Q
+q 0.960 0.980 0.980 rg 44 564 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 44 564 m 163.25 564 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 51.00 591.00 Tm (FERME) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 164.25 582.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 173.25 564 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 173.25 564 m 292.5 564 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 180.25 591.00 Tm (Contrôle SORTIE) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 293.50 582.00 Tm (>) Tj ET Q
+q 0.960 0.980 0.980 rg 302.5 564 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 302.5 564 m 421.75 564 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 309.50 591.00 Tm (EN_COURS) Tj ET Q
+q 0.770 0.430 0.220 rg BT /F2 11 Tf 1 0 0 1 422.75 582.00 Tm (>) Tj ET Q
+q 0.910 0.960 0.950 rg 431.75 564 119.25 45 re f Q
+q 0.830 0.880 0.890 RG 0.8 w 431.75 564 m 551 564 l S Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 438.75 591.00 Tm (Contrôle RETOUR /) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8.3 Tf 1 0 0 1 438.75 581.00 Tm (TERMINEE) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 548.00 Tm (- Chaque contrôle doit couvrir la quantité totale de chaque ligne de réservation.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 533.50 Tm (- À la sortie, état BON ou ABIME ; au retour, état BON, ABIME ou MANQUANT.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 519.00 Tm (- Si une unité doit être réparée ou retirée du service, créer une indisponibilité) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 506.50 Tm (correspondante.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 486 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 489.00 Tm (Paiements et cautions) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 470.00 Tm (- Enregistrer paiement de location, remboursement, caution reçue ou caution restituée.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 455.50 Tm (- Chaque mouvement garde montant, mode \(espèces, mobile money, virement, carte ou autre\),) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 443.00 Tm (référence facultative et responsable.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (06) Tj ET Q
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 20 0 R >>
+endobj
+20 0 obj
+<< /Length 3837 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  07) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (API, accès et expérience) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (Les écrans React utilisent des routes NestJS publiques ou protégées par JWT et rôle.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 723 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 726.00 Tm (Routes représentatives) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 707.00 Tm (- Public : GET /api/articles, GET /api/catalogue/categories, GET /api/evenements, GET) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 694.50 Tm (/api/disponibilite.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 680.00 Tm (- Authentification : POST /api/auth/inscription et POST /api/auth/connexion.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 665.50 Tm (- Client : POST /api/reservations, GET /api/reservations/moi, PATCH) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 653.00 Tm (/api/reservations/:id/annuler.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 638.50 Tm (- Admin : GET /api/reservations, POST /api/reservations/manuelles, PATCH) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 626.00 Tm (/api/reservations/:id/decision, opérations sortie/retour et paiements.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 611.50 Tm (- Communications : GET/POST /api/reservations/:id/messages ; notifications via) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 599.00 Tm (/api/notifications.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 584.50 Tm (- Facture : GET /api/reservations/:id/facture renvoie un document PDF.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 564 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 567.00 Tm (Sécurité applicative) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 548.00 Tm (- Les mots de passe sont hashés ; le JWT signe les sessions et contient rôle/identité.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 533.50 Tm (- JWT_SECRET doit être aléatoire et privé. Un changement de secret invalide les sessions) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 521.00 Tm (déjà enregistrées dans le navigateur.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 506.50 Tm (- Les variables DB_PASSWORD, JWT_SECRET, OBSERVE_APP_SECRET et SMTP_URL restent dans les) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 494.00 Tm (secrets Render et ne sont jamais publiées dans le dépôt.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 473.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 476.50 Tm (Services auxiliaires) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 457.50 Tm (- Les notifications applicatives sont persistées et affichées au bon utilisateur.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 443.00 Tm (- L'envoi réel d'e-mail nécessite SMTP ; sans transport, l'application consigne l'e-mail au) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 430.50 Tm (lieu de le livrer.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 416.00 Tm (- NestJS Observe nécessite les clés renouvelées dans l'environnement Render pour envoyer) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 403.50 Tm (les traces et métriques.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (07) Tj ET Q
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 22 0 R >>
+endobj
+22 0 obj
+<< /Length 3454 >>
+stream
+q 0.060 0.430 0.450 rg 0 834 595 8 re f Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 44.00 811.00 Tm (LOCATION DE MATERIEL EVENEMENTIEL) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 8 Tf 1 0 0 1 425.00 811.00 Tm (CONCEPTION  |  08) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F2 23 Tf 1 0 0 1 44.00 773.00 Tm (Déploiement et vérifications) Tj ET Q
+q 0.340 0.430 0.470 rg BT /F1 10 Tf 1 0 0 1 44.00 751.00 Tm (État de démonstration documenté au 18 novembre 2026.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 723 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 726.00 Tm (Architecture publiée) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 707.00 Tm (- Frontend public : https://location-materiels.onrender.com) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 692.50 Tm (- API : https://location-materiel-api.onrender.com) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 678.00 Tm (- Base : TiDB Cloud Starter, base location_projet, accès TLS.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 663.50 Tm (- Le Static Site doit réécrire /api/* vers le Web Service API puis / vers /index.html pour) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 651.00 Tm (les routes React.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 630.5 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 633.50 Tm (Liste de vérification fonctionnelle) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 614.50 Tm (- Ouvrir le catalogue public et vérifier les événements, catégories, articles et) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 602.00 Tm (disponibilité.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 587.50 Tm (- Tester connexion client et admin, demande, décision, annulation et historique.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 573.00 Tm (- Tester réservation manuelle, sortie/retour, indisponibilité, paiements, messages,) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 560.50 Tm (notifications et facture PDF.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 546.00 Tm (- Vérifier CORS_ORIGIN sur l'origine publique exacte du frontend et l'absence de secrets) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 533.50 Tm (dans Git.) Tj ET Q
+q 0.770 0.430 0.220 rg 44 513 4 13 re f Q
+q 0.060 0.430 0.450 rg BT /F2 12 Tf 1 0 0 1 55.00 516.00 Tm (Limites de démonstration) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 497.00 Tm (- Un service Render gratuit peut s'endormir ; une première requête peut attendre son) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 484.50 Tm (réveil.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 470.00 Tm (- Les tâches planifiées ne tournent pas lorsque le service est arrêté ; les alertes e-mail) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 457.50 Tm (demandent un transport configuré.) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 443.00 Tm (- Avant usage commercial : prévoir disponibilité continue, sauvegardes, surveillance,) Tj ET Q
+q 0.090 0.180 0.220 rg BT /F1 9.2 Tf 1 0 0 1 49.00 430.50 Tm (stockage externe pour fichiers et politique de sécurité.) Tj ET Q
+q 0.830 0.880 0.890 RG 0.7 w 44 35 m 551 35 l S Q
+q 0.340 0.430 0.470 rg BT /F1 7.2 Tf 1 0 0 1 44.00 22.00 Tm (Document de conception - version basee sur le code et le deploiement actuels) Tj ET Q
+q 0.060 0.430 0.450 rg BT /F2 8 Tf 1 0 0 1 539.00 22.00 Tm (08) Tj ET Q
+endstream
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000175 00000 n 
+0000000272 00000 n 
+0000000374 00000 n 
+0000000510 00000 n 
+0000002082 00000 n 
+0000002218 00000 n 
+0000005781 00000 n 
+0000005918 00000 n 
+0000010341 00000 n 
+0000010479 00000 n 
+0000014926 00000 n 
+0000015064 00000 n 
+0000020381 00000 n 
+0000020519 00000 n 
+0000023979 00000 n 
+0000024117 00000 n 
+0000028118 00000 n 
+0000028256 00000 n 
+0000032146 00000 n 
+0000032284 00000 n 
+trailer
+<< /Size 23 /Root 1 0 R >>
+startxref
+35791
+%%EOF
