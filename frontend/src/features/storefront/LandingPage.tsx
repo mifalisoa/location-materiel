@@ -46,6 +46,10 @@ const navLinks = [
 const sectionIds = ['accueil', 'a-propos', 'univers', 'comment-ca-marche', 'questions']
 const marqueeFallback = ['Mariage', 'Séminaire', 'Gala', 'Anniversaire', 'Fête en plein air', 'Cocktail', 'Conférence']
 
+function requestLandingAuth(destination: string) {
+  window.dispatchEvent(new CustomEvent('landing:require-auth', { detail: destination }))
+}
+
 function Icon({ name }: { name: string }) {
   const p = { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
   if (name === 'calendar') return <svg {...p}><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>
@@ -77,12 +81,24 @@ function LandingNav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hovered, setHovered] = useState<string | null>(null)
   const [authMode, setAuthMode] = useState<AuthMode | null>(null)
+  const [authDestination, setAuthDestination] = useState('/compte')
   const [authBusy, setAuthBusy] = useState(false)
   const [authError, setAuthError] = useState('')
   const reduced = useReducedMotion()
   const active = useActiveSection()
   const { scrollY } = useScroll()
   useMotionValueEvent(scrollY, 'change', (latest) => setScrolled(latest > 24))
+
+  function openAuth(destination = '/compte', mode: AuthMode = 'connexion') {
+    setAuthDestination(destination)
+    setAuthError('')
+    setAuthMode(mode)
+  }
+
+  function requireAuth(event: { preventDefault: () => void }, destination: string) {
+    event.preventDefault()
+    openAuth(destination)
+  }
 
   // Verrouille le scroll + Échap + fermeture si on repasse en desktop
   useEffect(() => {
@@ -112,6 +128,15 @@ function LandingNav() {
     }
   }, [authMode])
 
+  useEffect(() => {
+    const onRequireAuth = (event: Event) => {
+      const destination = (event as CustomEvent<string>).detail
+      if (typeof destination === 'string' && destination.startsWith('/catalogue')) openAuth(destination)
+    }
+    window.addEventListener('landing:require-auth', onRequireAuth)
+    return () => window.removeEventListener('landing:require-auth', onRequireAuth)
+  }, [])
+
   async function authenticate(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (!authMode || authBusy) return
@@ -130,7 +155,7 @@ function LandingNav() {
       }
       if (typeof result !== 'object' || result === null || !('accessToken' in result) || typeof result.accessToken !== 'string') throw new Error('Le serveur n’a pas renvoyé de session valide.')
       localStorage.setItem('location-token', result.accessToken)
-      window.location.assign('/compte')
+      window.location.assign(authDestination)
     } catch (cause) {
       setAuthError(cause instanceof Error ? cause.message : 'Connexion impossible. Réessayez.')
       setAuthBusy(false)
@@ -149,14 +174,14 @@ function LandingNav() {
       <nav aria-label="Navigation principale" onMouseLeave={() => setHovered(null)}>
         {navLinks.map((link) => {
           const isActive = link.href === `#${active}`
-          return <a key={link.label} href={link.href} className={isActive ? 'is-active' : undefined} aria-current={isActive ? 'true' : undefined} onMouseEnter={() => setHovered(link.label)} onFocus={() => setHovered(link.label)}>
+          return <a key={link.label} href={link.href} className={isActive ? 'is-active' : undefined} aria-current={isActive ? 'true' : undefined} onClick={link.href.startsWith('/catalogue') ? (event) => requireAuth(event, '/catalogue') : undefined} onMouseEnter={() => setHovered(link.label)} onFocus={() => setHovered(link.label)}>
             {link.label}
             {underlineTarget === link.label && !reduced && <motion.i className="nav-underline" layoutId="landing-nav-underline" transition={{ type: 'spring', stiffness: 360, damping: 30 }} />}
             {underlineTarget === link.label && reduced && <i className="nav-underline" />}
           </a>
         })}
       </nav>
-      <div className="landing-header-actions"><a className="landing-account" href="#connexion" onClick={(event) => { event.preventDefault(); setAuthError(''); setAuthMode('connexion') }}>Se connecter</a><Magnetic className="landing-nav-magnetic"><a className="landing-header-cta" href="#inscription" onClick={(event) => { event.preventDefault(); setAuthError(''); setAuthMode('inscription') }}>S’inscrire</a></Magnetic></div>
+      <div className="landing-header-actions"><a className="landing-account" href="#connexion" onClick={(event) => { event.preventDefault(); openAuth() }}>Se connecter</a><Magnetic className="landing-nav-magnetic"><a className="landing-header-cta" href="#inscription" onClick={(event) => { event.preventDefault(); openAuth('/compte', 'inscription') }}>S’inscrire</a></Magnetic></div>
       <button className={`landing-menu-toggle${mobileOpen ? ' is-open' : ''}`} aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={mobileOpen} aria-controls="landing-mobile-panel" onClick={() => setMobileOpen((v) => !v)}><span /><span /><span /></button>
     </motion.header>
     <AnimatePresence>
@@ -164,11 +189,11 @@ function LandingNav() {
         <motion.ul initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: reduced ? 0 : 0.06, delayChildren: 0.15 } } }}>
           {[...navLinks, { label: 'Se connecter', href: '#connexion' }].map((link) => (
             <motion.li key={link.label} variants={{ hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0 } }} transition={{ duration: 0.4, ease: smoothEase }}>
-              <a href={link.href} className={link.href === `#${active}` ? 'is-active' : undefined} onClick={(event) => { setMobileOpen(false); if (link.href === '#connexion') { event.preventDefault(); setAuthError(''); setAuthMode('connexion') } }}>{link.label}<span>↗</span></a>
+              <a href={link.href} className={link.href === `#${active}` ? 'is-active' : undefined} onClick={(event) => { setMobileOpen(false); if (link.href.startsWith('/catalogue')) requireAuth(event, '/catalogue'); else if (link.href === '#connexion') { event.preventDefault(); openAuth() } }}>{link.label}<span>↗</span></a>
             </motion.li>
           ))}
         </motion.ul>
-        <a className="landing-btn landing-btn-teal landing-mobile-cta" href="#inscription" onClick={(event) => { event.preventDefault(); setMobileOpen(false); setAuthError(''); setAuthMode('inscription') }}>S’inscrire pour réserver</a>
+        <a className="landing-btn landing-btn-teal landing-mobile-cta" href="#inscription" onClick={(event) => { event.preventDefault(); setMobileOpen(false); openAuth('/catalogue', 'inscription') }}>S’inscrire pour réserver</a>
       </motion.div>}
     </AnimatePresence>
     <AnimatePresence>
@@ -253,7 +278,8 @@ export default function LandingPage() {
 
   function quickSearch(event: FormEvent) {
     event.preventDefault()
-    window.location.href = selectedEvent ? `/catalogue?evenement=${encodeURIComponent(selectedEvent)}` : '/catalogue'
+    const destination = selectedEvent ? `/catalogue?evenement=${encodeURIComponent(selectedEvent)}` : '/catalogue'
+    window.dispatchEvent(new CustomEvent('landing:require-auth', { detail: destination }))
   }
 
   const ease = smoothEase
@@ -279,7 +305,7 @@ export default function LandingPage() {
             <motion.p className="landing-hero-description" initial={reduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5, ease }}>Mariage, séminaire, gala ou fête en plein air : réservez en ligne le matériel qui donne forme à vos moments.</motion.p>
             <motion.div className="landing-hero-actions" initial={reduceMotion ? false : { opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.63, ease }}>
               <Magnetic><a className="landing-btn landing-btn-light landing-btn-shine" href="#univers">Choisir mon événement</a></Magnetic>
-              <a className="landing-btn landing-btn-ghost" href="/catalogue">Voir le catalogue</a>
+              <a className="landing-btn landing-btn-ghost" href="/catalogue" onClick={(event) => { event.preventDefault(); requestLandingAuth('/catalogue') }}>Voir le catalogue</a>
             </motion.div>
           </motion.div>
 
@@ -330,7 +356,7 @@ export default function LandingPage() {
               <motion.div whileHover={reduceMotion ? undefined : { x: 8 }}><span><Icon name="calendar" /></span><div><h3>Dates maîtrisées</h3><p>Les stocks sont calculés pour la période que vous choisissez.</p></div></motion.div>
               <motion.div whileHover={reduceMotion ? undefined : { x: 8 }}><span><Icon name="shield" /></span><div><h3>Réservation fiable</h3><p>Votre demande est validée par le loueur avant confirmation.</p></div></motion.div>
             </div>
-            <Magnetic><a className="landing-btn landing-btn-teal landing-btn-shine" href="/catalogue">Découvrir le catalogue</a></Magnetic>
+            <Magnetic><a className="landing-btn landing-btn-teal landing-btn-shine" href="/catalogue" onClick={(event) => { event.preventDefault(); requestLandingAuth('/catalogue') }}>Découvrir le catalogue</a></Magnetic>
           </FadeIn>
         </section>
 
@@ -339,7 +365,7 @@ export default function LandingPage() {
           <span className="landing-blob landing-blob-c" aria-hidden="true" />
           <FadeIn className="landing-section-heading"><div><p className="landing-tag landing-tag-light">Nos univers</p><h2>Le bon équipement pour <span className="accent">chaque moment</span></h2></div><p>Choisissez votre occasion, découvrez les essentiels et composez votre sélection.</p></FadeIn>
           <StaggerContainer className="landing-event-grid">
-            {events.map((event) => <StaggerItem key={event.id}><TiltCard className="landing-event-tilt"><motion.a className="landing-event-card" href={`/catalogue?evenement=${encodeURIComponent(event.id)}`} whileHover={reduceMotion ? undefined : { y: -6 }} whileTap={{ scale: 0.98 }}>
+            {events.map((event) => <StaggerItem key={event.id}><TiltCard className="landing-event-tilt"><motion.a className="landing-event-card" href={`/catalogue?evenement=${encodeURIComponent(event.id)}`} onClick={(click) => { click.preventDefault(); window.dispatchEvent(new CustomEvent('landing:require-auth', { detail: `/catalogue?evenement=${encodeURIComponent(event.id)}` })) }} whileHover={reduceMotion ? undefined : { y: -6 }} whileTap={{ scale: 0.98 }}>
               <div className="landing-event-image" style={{ '--landing-event-image': event.imageUrl ? `url("${event.imageUrl}")` : 'none' } as CSSProperties}><span className="landing-event-kicker">{event.subtitle}</span></div>
               <div className="landing-event-info">
                 <h3>{event.name}</h3>
@@ -355,7 +381,7 @@ export default function LandingPage() {
           <div><b><Counter value={events.length} /></b><span>univers événementiels</span></div>
           <div><b><Counter value={materialCount ?? 0} /></b><span>articles au catalogue</span></div>
           <div><b><Counter value={3} /></b><span>étapes pour votre demande</span></div>
-          <a className="landing-btn landing-btn-light landing-btn-shine" href="/catalogue">Composer mon panier</a>
+          <a className="landing-btn landing-btn-light landing-btn-shine" href="/catalogue" onClick={(event) => { event.preventDefault(); requestLandingAuth('/catalogue') }}>Composer mon panier</a>
         </motion.section>
 
         {/* ============ ÉTAPES ============ */}
@@ -372,14 +398,14 @@ export default function LandingPage() {
         {/* ============ CTA FINAL ============ */}
         <motion.section className="landing-final-cta" initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 30 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.75, ease }}>
           <div><p className="landing-tag landing-tag-light">Prêt à célébrer ?</p><h2>Commençons par <span className="accent">votre événement</span></h2></div>
-          <Magnetic><motion.a className="landing-btn landing-btn-light landing-pulse landing-btn-shine" href="/catalogue" whileTap={reduceMotion ? undefined : { scale: 0.95 }}>Explorer le matériel</motion.a></Magnetic>
+          <Magnetic><motion.a className="landing-btn landing-btn-light landing-pulse landing-btn-shine" href="/catalogue" onClick={(event) => { event.preventDefault(); requestLandingAuth('/catalogue') }} whileTap={reduceMotion ? undefined : { scale: 0.95 }}>Explorer le matériel</motion.a></Magnetic>
         </motion.section>
       </main>
 
       <footer className="landing-footer">
         <a className="landing-brand" href="/"><BrandLogo /></a>
         <span>Le matériel qui accompagne vos grands moments.</span>
-        <a href="/catalogue">Entrer dans la boutique</a>
+        <a href="/catalogue" onClick={(event) => { event.preventDefault(); requestLandingAuth('/catalogue') }}>Entrer dans la boutique</a>
         <small>© 2026 · Location événementielle</small>
       </footer>
 
