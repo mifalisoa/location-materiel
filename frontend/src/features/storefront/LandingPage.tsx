@@ -5,10 +5,12 @@ import { eventCollections, type EventCollection } from './eventCatalog'
 import { AnimatedText, Counter, FadeIn, Magnetic, MotionCursor, ReadingProgress, ScrollParallax, StaggerContainer, StaggerItem, TiltCard } from './motion/MotionComponents'
 import { smoothEase } from './motion/animations'
 import '../../styles/landing.css'
+import '../../styles/landing-auth.css'
 
 type LandingEvent = EventCollection & { imageUrl?: string | null; articles?: Array<{ id: number; nom: string }> }
 type ApiEvent = { id: number; nom: string; slug: string; sousTitre: string | null; description: string | null; imageUrl: string | null; ordre: number; articles: Array<{ id: number; nom: string }> }
 type ApiArticle = { id: number; nom: string }
+type AuthMode = 'connexion' | 'inscription'
 
 /* ⚠️ À remplacer par vos vraies coordonnées */
 const CONTACT = { phone: '+261 00 00 000 00', email: 'contact@materiel.local', hours: 'Lun - Sam : 08h - 18h' }
@@ -74,6 +76,9 @@ function LandingNav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hovered, setHovered] = useState<string | null>(null)
+  const [authMode, setAuthMode] = useState<AuthMode | null>(null)
+  const [authBusy, setAuthBusy] = useState(false)
+  const [authError, setAuthError] = useState('')
   const reduced = useReducedMotion()
   const active = useActiveSection()
   const { scrollY } = useScroll()
@@ -95,6 +100,43 @@ function LandingNav() {
     }
   }, [mobileOpen])
 
+  useEffect(() => {
+    if (!authMode) return
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === 'Escape') setAuthMode(null) }
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = previous
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [authMode])
+
+  async function authenticate(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (!authMode || authBusy) return
+    setAuthBusy(true)
+    setAuthError('')
+    const data = new FormData(event.currentTarget)
+    const body = authMode === 'inscription'
+      ? { prenom: data.get('prenom'), nom: data.get('nom'), telephone: data.get('telephone'), email: data.get('email'), motDePasse: data.get('password') }
+      : { email: data.get('email'), motDePasse: data.get('password') }
+    try {
+      const response = await fetch(`/api/auth/${authMode}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      const result: unknown = await response.json().catch(() => null)
+      if (!response.ok) {
+        const message = typeof result === 'object' && result !== null && 'message' in result ? result.message : 'Authentification impossible.'
+        throw new Error(Array.isArray(message) ? message.join(', ') : String(message))
+      }
+      if (typeof result !== 'object' || result === null || !('accessToken' in result) || typeof result.accessToken !== 'string') throw new Error('Le serveur n’a pas renvoyé de session valide.')
+      localStorage.setItem('location-token', result.accessToken)
+      window.location.assign('/compte')
+    } catch (cause) {
+      setAuthError(cause instanceof Error ? cause.message : 'Connexion impossible. Réessayez.')
+      setAuthBusy(false)
+    }
+  }
+
   const underlineTarget = hovered ?? navLinks.find((l) => l.href === `#${active}`)?.label ?? null
 
   return <>
@@ -114,19 +156,39 @@ function LandingNav() {
           </a>
         })}
       </nav>
-      <div className="landing-header-actions"><a className="landing-account" href="/catalogue?compte=connexion">Se connecter</a><Magnetic className="landing-nav-magnetic"><a className="landing-header-cta" href="/catalogue?compte=inscription">S’inscrire</a></Magnetic></div>
+      <div className="landing-header-actions"><a className="landing-account" href="#connexion" onClick={(event) => { event.preventDefault(); setAuthError(''); setAuthMode('connexion') }}>Se connecter</a><Magnetic className="landing-nav-magnetic"><a className="landing-header-cta" href="#inscription" onClick={(event) => { event.preventDefault(); setAuthError(''); setAuthMode('inscription') }}>S’inscrire</a></Magnetic></div>
       <button className={`landing-menu-toggle${mobileOpen ? ' is-open' : ''}`} aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={mobileOpen} aria-controls="landing-mobile-panel" onClick={() => setMobileOpen((v) => !v)}><span /><span /><span /></button>
     </motion.header>
     <AnimatePresence>
       {mobileOpen && <motion.div id="landing-mobile-panel" className="landing-mobile-panel" initial={reduced ? false : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }} animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }} exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }} transition={{ duration: reduced ? 0 : 0.45, ease: smoothEase }}>
         <motion.ul initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: reduced ? 0 : 0.06, delayChildren: 0.15 } } }}>
-          {[...navLinks, { label: 'Se connecter', href: '/catalogue?compte=connexion' }].map((link) => (
+          {[...navLinks, { label: 'Se connecter', href: '#connexion' }].map((link) => (
             <motion.li key={link.label} variants={{ hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0 } }} transition={{ duration: 0.4, ease: smoothEase }}>
-              <a href={link.href} className={link.href === `#${active}` ? 'is-active' : undefined} onClick={() => setMobileOpen(false)}>{link.label}<span>↗</span></a>
+              <a href={link.href} className={link.href === `#${active}` ? 'is-active' : undefined} onClick={(event) => { setMobileOpen(false); if (link.href === '#connexion') { event.preventDefault(); setAuthError(''); setAuthMode('connexion') } }}>{link.label}<span>↗</span></a>
             </motion.li>
           ))}
         </motion.ul>
-        <a className="landing-btn landing-btn-teal landing-mobile-cta" href="/catalogue?compte=inscription" onClick={() => setMobileOpen(false)}>S’inscrire pour réserver</a>
+        <a className="landing-btn landing-btn-teal landing-mobile-cta" href="#inscription" onClick={(event) => { event.preventDefault(); setMobileOpen(false); setAuthError(''); setAuthMode('inscription') }}>S’inscrire pour réserver</a>
+      </motion.div>}
+    </AnimatePresence>
+    <AnimatePresence>
+      {authMode && <motion.div className="landing-auth-backdrop" role="presentation" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => { if (event.target === event.currentTarget) setAuthMode(null) }}>
+        <motion.section className="landing-auth-modal" role="dialog" aria-modal="true" aria-labelledby="landing-auth-title" initial={{ opacity: 0, y: 28, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 18, scale: .98 }} transition={{ duration: .35, ease: smoothEase }}>
+          <button className="landing-auth-close" type="button" onClick={() => setAuthMode(null)} aria-label="Fermer">×</button>
+          <BrandLogo className="landing-auth-mark" showWordmark={false} />
+          <p className="landing-auth-kicker">VOTRE ESPACE ÉVÉNEMENTIEL</p>
+          <h2 id="landing-auth-title">{authMode === 'connexion' ? 'Heureux de vous revoir.' : 'Créons votre espace.'}</h2>
+          <p className="landing-auth-description">{authMode === 'connexion' ? 'Connectez-vous pour retrouver vos réservations et poursuivre votre projet.' : 'Inscrivez-vous pour envoyer une demande et suivre vos locations.'}</p>
+          {authError && <p className="landing-auth-error" role="alert">{authError}</p>}
+          <form className="landing-auth-form" onSubmit={authenticate}>
+            {authMode === 'inscription' && <div className="landing-auth-name-row"><label>Prénom<input name="prenom" autoComplete="given-name" required /></label><label>Nom<input name="nom" autoComplete="family-name" required /></label></div>}
+            <label>Adresse e-mail<input name="email" type="email" autoComplete="email" placeholder="vous@exemple.com" required /></label>
+            <label>Mot de passe<input name="password" type="password" autoComplete={authMode === 'connexion' ? 'current-password' : 'new-password'} minLength={8} required /></label>
+            {authMode === 'inscription' && <label>Téléphone<input name="telephone" type="tel" autoComplete="tel" required /></label>}
+            <button type="submit" disabled={authBusy}>{authBusy ? 'Veuillez patienter…' : authMode === 'connexion' ? 'Se connecter' : 'Créer mon compte'}<span>↗</span></button>
+          </form>
+          <p className="landing-auth-switch">{authMode === 'connexion' ? 'Pas encore de compte ?' : 'Déjà inscrit ?'} <button type="button" onClick={() => { setAuthError(''); setAuthMode(authMode === 'connexion' ? 'inscription' : 'connexion') }}>{authMode === 'connexion' ? 'S’inscrire' : 'Se connecter'}</button></p>
+        </motion.section>
       </motion.div>}
     </AnimatePresence>
   </>

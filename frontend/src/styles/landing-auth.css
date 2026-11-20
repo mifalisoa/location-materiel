@@ -1,0 +1,18 @@
+.landing-auth-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; overflow-y: auto; padding: 22px; background: rgb(3 18 30 / 68%); backdrop-filter: blur(8px); }
+.landing-auth-modal { position: relative; width: min(470px, 100%); max-height: min(92vh, 800px); overflow-y: auto; padding: clamp(26px, 5vw, 42px); border: 1px solid rgb(255 255 255 / 70%); border-radius: 22px; background: #fff; color: #0b2233; box-shadow: 0 30px 100px rgb(0 0 0 / 32%); }
+.landing-auth-close { position: absolute; top: 15px; right: 15px; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #dbe6ea; border-radius: 50%; background: #fff; color: #49656d; font-size: 23px; cursor: pointer; }
+.landing-auth-mark { margin-bottom: 15px; }
+.landing-auth-kicker { margin: 0 0 9px; color: #0f8c86; font-size: .72rem; font-weight: 800; letter-spacing: .13em; }
+.landing-auth-modal h2 { margin: 0; color: #04202f; font: 700 clamp(1.8rem, 5vw, 2.35rem)/1.1 var(--font-display, sans-serif); }
+.landing-auth-description { margin: 10px 0 20px; color: #5b7080; font-size: .95rem; line-height: 1.6; }
+.landing-auth-form { display: grid; gap: 13px; }
+.landing-auth-form label { display: grid; gap: 6px; color: #173b47; font-size: .86rem; font-weight: 700; }
+.landing-auth-form input { width: 100%; height: 45px; padding: 0 12px; border: 1px solid #dbe6ea; border-radius: 9px; background: #fff; color: #0b2233; font: 400 .94rem var(--font-body, sans-serif); outline: none; }
+.landing-auth-form input:focus { border-color: #14b8a6; box-shadow: 0 0 0 3px rgb(20 184 166 / 14%); }
+.landing-auth-name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.landing-auth-form > button { display: flex; justify-content: space-between; align-items: center; min-height: 48px; margin-top: 3px; padding: 0 15px; border: 0; border-radius: 9px; background: #0f9f97; color: white; font: 700 .98rem var(--font-display, sans-serif); cursor: pointer; }
+.landing-auth-form > button:disabled { opacity: .65; cursor: wait; }
+.landing-auth-error { margin: 0 0 14px; padding: 10px 12px; border: 1px solid #f0caca; border-radius: 9px; background: #fff3f3; color: #a43b40; font-size: .88rem; }
+.landing-auth-switch { margin: 17px 0 0; color: #5b7080; text-align: center; font-size: .9rem; }
+.landing-auth-switch button { border: 0; padding: 0 0 0 4px; background: transparent; color: #087d79; font: 800 .9rem var(--font-body, sans-serif); cursor: pointer; }
+@media (max-width: 500px) { .landing-auth-backdrop { align-items: start; padding: 12px; } .landing-auth-modal { margin-block: auto; border-radius: 17px; } .landing-auth-name-row { grid-template-columns: 1fr; } }
