@@ -24,11 +24,11 @@ const toInputDate = (date: Date) => `${date.getFullYear()}-${String(date.getMont
 const today = () => toInputDate(new Date())
 const tomorrow = () => { const date = new Date(); date.setDate(date.getDate() + 1); return toInputDate(date) }
 const fallbackArticleImages = {
-  audio: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80',
-  scene: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80',
-  mobilier: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
-  reception: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80',
-  default: 'https://images.unsplash.com/photo-1519225421980-888cb8b5e6d6?auto=format&fit=crop&w=900&q=80',
+  audio: '/catalog-audio.svg',
+  scene: '/catalog-scene.svg',
+  mobilier: '/catalog-mobilier.svg',
+  reception: '/catalog-reception.svg',
+  default: '/catalog-generic.svg',
 }
 
 function articleFallbackImage(article: Article) {
@@ -302,7 +302,7 @@ function Storefront() {
             const selected = cart.find((line) => line.article.id === article.id)?.quantite ?? 0
             return <motion.article className="product-card" key={article.id} layout initial={{ opacity: 0, y: 28, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, amount: .15 }} transition={{ duration: .5, delay: Math.min(index * .06, .3), ease }} whileHover={{ y: -7 }}><div className={`product-visual visual-${index % 4}`}>
               <div className="tool-art" aria-hidden="true"><span className="tool-shape">{toolSymbol(article.categorie?.nom ?? '')}</span><span className="tool-shadow" /></div>
-              <img className="product-image" src={article.imageUrl || articleFallbackImage(article)} alt={article.nom} loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none' }} />
+              <img className="product-image" src={article.imageUrl || articleFallbackImage(article)} alt={article.nom} loading="lazy" onError={(event) => { const image = event.currentTarget; if (image.dataset.fallback !== 'true') { image.dataset.fallback = 'true'; image.src = articleFallbackImage(article) } else image.style.display = 'none' }} />
               <span className="product-category">{article.categorie?.nom ?? 'Matériel'}</span><motion.button whileTap={{ scale: 0.85 }} whileHover={{ scale: 1.12 }} className="quick-add" onClick={() => add(article)} disabled={stock < 1 || selected >= stock} aria-label={`Ajouter ${article.nom} au panier`}>{selected ? `+${selected}` : '+'}</motion.button></div>
               <div className="product-info"><div className="product-name-line"><h3>{article.nom}</h3><span className="stock-status"><i className={stock > 0 ? 'available' : ''} />{stock > 0 ? `${stock} disponible${stock > 1 ? 's' : ''}` : 'Indisponible'}</span></div>
                 <p>{article.description || 'Un équipement fiable et vérifié, prêt à vous accompagner.'}</p><div className="product-footer"><div><strong>{money.format(article.prixJour)} <small>Ar</small></strong><span>/ jour · caution {money.format(article.caution)} Ar</span></div><motion.button whileTap={{ scale: 0.94 }} onClick={() => add(article)} disabled={stock < 1 || selected >= stock}>{stock < 1 ? 'Indisponible' : selected ? 'Ajouter encore' : 'Ajouter'} <span>↗</span></motion.button></div></div>
