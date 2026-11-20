@@ -187,8 +187,8 @@ function Storefront() {
       const result = await readJson<{ accessToken: string }>(await fetch(`/api/auth/${authMode === 'inscription' ? 'inscription' : 'connexion'}`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
       }))
-      localStorage.setItem('location-token', result.accessToken); setAuthToken(result.accessToken); setAuthMode(null)
-      setNotice('Connexion réussie. Votre demande peut être envoyée.')
+      localStorage.setItem('location-token', result.accessToken)
+      window.location.assign('/compte')
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'Connexion impossible') }
     finally { setBusy(false) }
   }
