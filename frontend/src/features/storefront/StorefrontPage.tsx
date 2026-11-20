@@ -70,7 +70,11 @@ function Storefront() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
-  const [authMode, setAuthMode] = useState<AuthMode | null>(() => new URLSearchParams(window.location.search).get('compte') === '1' ? 'connexion' : null)
+  const [authMode, setAuthMode] = useState<AuthMode | null>(() => {
+    const accountMode = new URLSearchParams(window.location.search).get('compte')
+    if (accountMode === 'inscription') return 'inscription'
+    return accountMode === '1' || accountMode === 'connexion' ? 'connexion' : null
+  })
   const [showOrders, setShowOrders] = useState(false)
   const [authToken, setAuthToken] = useState(() => localStorage.getItem('location-token') ?? '')
   const [busy, setBusy] = useState(false)

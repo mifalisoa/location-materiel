@@ -114,19 +114,19 @@ function LandingNav() {
           </a>
         })}
       </nav>
-      <div className="landing-header-actions"><a className="landing-account" href="/catalogue?compte=1">Mon compte</a><Magnetic className="landing-nav-magnetic"><a className="landing-header-cta" href="/catalogue">Réserver</a></Magnetic></div>
+      <div className="landing-header-actions"><a className="landing-account" href="/catalogue?compte=connexion">Se connecter</a><Magnetic className="landing-nav-magnetic"><a className="landing-header-cta" href="/catalogue?compte=inscription">S’inscrire</a></Magnetic></div>
       <button className={`landing-menu-toggle${mobileOpen ? ' is-open' : ''}`} aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={mobileOpen} aria-controls="landing-mobile-panel" onClick={() => setMobileOpen((v) => !v)}><span /><span /><span /></button>
     </motion.header>
     <AnimatePresence>
       {mobileOpen && <motion.div id="landing-mobile-panel" className="landing-mobile-panel" initial={reduced ? false : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }} animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }} exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }} transition={{ duration: reduced ? 0 : 0.45, ease: smoothEase }}>
         <motion.ul initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: reduced ? 0 : 0.06, delayChildren: 0.15 } } }}>
-          {[...navLinks, { label: 'Mon compte', href: '/catalogue?compte=1' }].map((link) => (
+          [...navLinks, { label: 'Se connecter', href: '/catalogue?compte=connexion' }].map((link) => (
             <motion.li key={link.label} variants={{ hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0 } }} transition={{ duration: 0.4, ease: smoothEase }}>
               <a href={link.href} className={link.href === `#${active}` ? 'is-active' : undefined} onClick={() => setMobileOpen(false)}>{link.label}<span>↗</span></a>
             </motion.li>
           ))}
         </motion.ul>
-        <a className="landing-btn landing-btn-teal landing-mobile-cta" href="/catalogue" onClick={() => setMobileOpen(false)}>Réserver du matériel</a>
+        <a className="landing-btn landing-btn-teal landing-mobile-cta" href="/catalogue?compte=inscription" onClick={() => setMobileOpen(false)}>S’inscrire pour réserver</a>
       </motion.div>}
     </AnimatePresence>
   </>
